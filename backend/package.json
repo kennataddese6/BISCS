@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the backend for barcode integrated student clearance system",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Semret",
+  "license": "ISC"
+}
