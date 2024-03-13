@@ -1,15 +1,21 @@
 import "./App.css";
-import love from "../src/assets/Love.jpg";
 function App() {
   return (
-    <div className="Introduction">
-      {" "}
-      <h1>Barcode Integrated Student clearance system(BISCS).</h1>
-      <h1>I love you very much my Love. I love you forever</h1>
-      <h1>I love you. You are my one and only love</h1>
-      <h1>I am sorry, I love you from the bottom of my heart</h1>
-      <img src={love} alt="love" />
-    </div>
+    <>
+      <div className="stepContainer">
+        <div className="stepCircle"> 1 </div>
+        <div className="stepText"> Academic </div>
+        <div className="stepLine"> </div>
+        <div className="stepCircle"> 2 </div>
+        <div className="stepText"> Clearance </div>
+        <div className="stepLine"> </div>
+        <div className="stepCircle"> 3 </div>
+        <div className="stepText"> Define rule </div>
+        <div className="stepLine"> </div>
+        <div className="stepCircle"> 4 </div>
+        <div className="stepText"> Complete </div>
+      </div>
+    </>
   );
 }
 
