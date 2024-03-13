@@ -16,6 +16,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+}
+.subStepContainer {
+  display: flex;
 }
 .stepCircle {
   background-color: blueviolet;
@@ -31,7 +35,10 @@ body {
   width: 100px;
   height: 3px;
   background-color: blueviolet;
+  align-self: center;
+  margin-left: 76px;
 }
 .stepText {
   justify-self: center;
+  align-self: center;
 }
