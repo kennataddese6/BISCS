@@ -23,7 +23,8 @@ function App() {
           <div className="stepText inactiveText"> Complete </div>
         </div>
       </div>
-      <h1 className = 'stepOneHeaderText'> Add Academic type</h1>
+      <h1 className="stepOneHeaderText"> Add Academic type</h1>
+      <div className="academictypesContainer"> </div>
     </>
   );
 }
