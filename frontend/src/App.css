@@ -48,3 +48,7 @@ body {
 .inactiveText {
   color: grey;
 }
+.stepOneHeaderText {
+  color: white;
+  text-align: center;
+}
