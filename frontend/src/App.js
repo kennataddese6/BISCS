@@ -9,18 +9,18 @@ function App() {
           <div className="stepLine"> </div>
         </div>
         <div className="subStepContainer">
-          <div className="stepCircle"> 2 </div>
-          <div className="stepText"> Clearance </div>
-          <div className="stepLine"> </div>
+          <div className="stepCircle inactiveStep"> 2 </div>
+          <div className="stepText inactiveText"> Clearance </div>
+          <div className="stepLine inactiveStep"> </div>
         </div>
         <div className="subStepContainer">
-          <div className="stepCircle"> 3 </div>
-          <div className="stepText"> Define rule </div>
-          <div className="stepLine"> </div>
+          <div className="stepCircle inactiveStep"> 3 </div>
+          <div className="stepText inactiveText"> Define rule </div>
+          <div className="stepLine inactiveStep"> </div>
         </div>
         <div className="subStepContainer">
-          <div className="stepCircle"> 4 </div>
-          <div className="stepText"> Complete </div>
+          <div className="stepCircle inactiveStep"> 4 </div>
+          <div className="stepText inactiveText"> Complete </div>
         </div>
       </div>
     </>
