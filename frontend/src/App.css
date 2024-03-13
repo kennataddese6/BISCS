@@ -1,4 +1,37 @@
-.Introduction {
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #161414;
+}
+.stepContainer {
   text-align: center;
-  color: dodgerblue;
+  color: white;
+  width: 80%;
+  margin: 32px auto;
+  height: auto;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.stepCircle {
+  background-color: blueviolet;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+}
+.stepLine {
+  width: 100px;
+  height: 3px;
+  background-color: blueviolet;
+}
+.stepText {
+  justify-self: center;
 }
