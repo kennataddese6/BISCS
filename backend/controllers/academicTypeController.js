@@ -7,7 +7,11 @@ const createAcademicType = asyncHandler(async (req, res) => {
   const result = await AcademicType.create({
     AcademicName: req.body.AcademicName,
   });
-  console.log(result);
+  if (result) {
+    res.status(200).json("Your request was successful. Academic type created");
+  } else {
+    res.status(400).json("Your request was not successful");
+  }
 });
 
 module.exports = {
