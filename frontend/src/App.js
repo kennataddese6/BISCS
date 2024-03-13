@@ -1,4 +1,5 @@
 import "./App.css";
+import { MdClose } from "react-icons/md";
 function App() {
   return (
     <>
@@ -25,12 +26,36 @@ function App() {
       </div>
       <h1 className="stepOneHeaderText"> Add Academic type</h1>
       <div className="academictypesContainer">
-        <div className="academicType">Regular</div>
-        <div className="academicType">Extension</div>
-        <div className="academicType">Weekend</div>
-        <div className="academicType">Night</div>
-        <div className="academicType">Summer</div>
-        <div className="academicType">Masters</div>
+        <div className="academicType">
+          <div className="academicTypeText">Regular</div>
+          <div className="closeIconContainer">
+            <MdClose />
+          </div>
+        </div>
+        <div className="academicType">
+          <div className="academicTypeText">Extension</div>
+          <div className="closeIconContainer">
+            <MdClose />
+          </div>
+        </div>
+        <div className="academicType">
+          <div className="academicTypeText">Weekend</div>
+          <div className="closeIconContainer">
+            <MdClose />
+          </div>
+        </div>
+        <div className="academicType">
+          <div className="academicTypeText">Shift</div>
+          <div className="closeIconContainer">
+            <MdClose />
+          </div>
+        </div>
+        <div className="academicType">
+          <div className="academicTypeText">Masters</div>
+          <div className="closeIconContainer">
+            <MdClose />
+          </div>
+        </div>
       </div>
     </>
   );
