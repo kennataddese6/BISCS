@@ -52,3 +52,10 @@ body {
   color: white;
   text-align: center;
 }
+.academictypesContainer {
+  max-width: 500px;
+  width: 80%;
+  height: 200px;
+  background-color: white;
+  margin: 64px auto;
+}
