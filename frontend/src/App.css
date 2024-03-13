@@ -42,3 +42,9 @@ body {
   justify-self: center;
   align-self: center;
 }
+.inactiveStep {
+  background-color: grey;
+}
+.inactiveText {
+  color: grey;
+}
