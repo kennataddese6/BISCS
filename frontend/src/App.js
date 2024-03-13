@@ -24,7 +24,14 @@ function App() {
         </div>
       </div>
       <h1 className="stepOneHeaderText"> Add Academic type</h1>
-      <div className="academictypesContainer"> </div>
+      <div className="academictypesContainer">
+        <div className="academicType">Regular</div>
+        <div className="academicType">Extension</div>
+        <div className="academicType">Weekend</div>
+        <div className="academicType">Night</div>
+        <div className="academicType">Summer</div>
+        <div className="academicType">Masters</div>
+      </div>
     </>
   );
 }
