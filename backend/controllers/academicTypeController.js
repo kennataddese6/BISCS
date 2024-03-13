@@ -13,7 +13,17 @@ const createAcademicType = asyncHandler(async (req, res) => {
     res.status(400).json("Your request was not successful");
   }
 });
+//This is a function to get all academic types
+const getAcademicType = asyncHandler(async (req, res) => {
+  const result = await AcademicType.find();
+  if (result) {
+    res.status(200).json(result); // This give resposne to the frontend
+  } else {
+    res.status(400).json("No academic Type found!");
+  }
+});
 
 module.exports = {
   createAcademicType,
+  getAcademicType,
 };
