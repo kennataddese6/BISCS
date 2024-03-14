@@ -111,6 +111,9 @@ function App() {
       >
         Add Custom
       </button>
+      <div className="nextButtonContainer">
+        <button className="nextStepButton"> Next </button>
+      </div>
     </>
   );
 }

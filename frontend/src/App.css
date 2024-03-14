@@ -121,6 +121,24 @@ select {
 .addCustomAcademicTypeButton:hover {
   box-shadow: 0 0 8px rgb(115, 23, 202);
 }
+.nextButtonContainer {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin: auto;
+  height: auto;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nextStepButton {
+  padding: 20px 44px;
+  background-color: rgb(151, 81, 216);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 @media only screen and (min-width: 600px) {
   .col-s-1 {
     width: 8.33%;
