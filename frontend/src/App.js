@@ -1,10 +1,13 @@
 import "./App.css";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createAcademicType } from "./features/academicType/academicSlice";
 
 function App() {
+  const dispatch = useDispatch()
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
@@ -41,6 +44,7 @@ function App() {
   };
   const handleSubmit = () => {
     console.log(academicNames);
+    dispatch(createAcademicType(academicNames))
   };
   return (
     <>
