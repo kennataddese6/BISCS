@@ -4,13 +4,8 @@ import { useState } from "react";
 
 function App() {
   const [academicNames, setAcademicNames] = useState([]);
-  const [academicTypes, setAcademicTypes] = useState([
-    "Regular",
-    "Extension",
-    "Weekend",
-    "Shift",
-    "Masters",
-  ]);
+  const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
+  const [customAcademic, setCustomAcademic] = useState("");
 
   const handleDropDownChange = (value) => {
     if (!value) {
@@ -27,6 +22,19 @@ function App() {
   const handleRemoveAcademic = (value) => {
     const newAcademicName = academicNames.filter((a) => a !== value);
     setAcademicNames(newAcademicName);
+  };
+  const handleAddCustomAcademic = () => {
+    if (!customAcademic) {
+      //If there is no value return/exit
+      return;
+    }
+    const duplicateValue = academicTypes.find((a) => a === customAcademic);
+    if (duplicateValue) {
+      //If teh value is already there exit
+      return;
+    }
+    setAcademicTypes([...academicTypes, customAcademic]);
+    setCustomAcademic("");
   };
   return (
     <>
@@ -86,8 +94,19 @@ function App() {
         name="customInput"
         placeholder="Custom academic type"
         className="academictypesContainer customAcademicTypeInput"
+        value={customAcademic}
+        onChange={(e) => {
+          setCustomAcademic(e.target.value);
+        }}
       />
-      <button className=" addCustomAcademicTypeButton">Add Custom</button>
+      <button
+        className=" addCustomAcademicTypeButton"
+        onClick={() => {
+          handleAddCustomAcademic();
+        }}
+      >
+        Add Custom
+      </button>
     </>
   );
 }
