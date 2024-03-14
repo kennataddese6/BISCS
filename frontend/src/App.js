@@ -1,6 +1,8 @@
 import "./App.css";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [academicNames, setAcademicNames] = useState([]);
@@ -35,9 +37,11 @@ function App() {
     }
     setAcademicTypes([...academicTypes, customAcademic]);
     setCustomAcademic("");
+    toast.success("Custom academic type added!");
   };
   return (
     <>
+      <ToastContainer />
       <div className="stepContainer">
         <div className="subStepContainer">
           <div className="stepCircle"> 1 </div>
