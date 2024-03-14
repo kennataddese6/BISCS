@@ -9,7 +9,7 @@ body {
 .stepContainer {
   text-align: center;
   color: white;
-  width: 80%;
+  width: 90%;
   margin: 32px auto;
   height: auto;
   background-color: black;
@@ -23,8 +23,8 @@ body {
 }
 .stepCircle {
   background-color: blueviolet;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ body {
   margin: 16px;
 }
 .stepLine {
-  width: 100px;
+  width: 80px;
   height: 3px;
   background-color: blueviolet;
   align-self: center;
@@ -56,7 +56,7 @@ body {
   width: 80%;
   height: auto;
   background-color: white;
-  margin: 64px auto;
+  margin: 32px auto;
   display: flex;
   flex-wrap: wrap;
 }
