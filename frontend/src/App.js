@@ -3,13 +3,7 @@ import { MdClose } from "react-icons/md";
 import { useState } from "react";
 
 function App() {
-  const [academicNames, setAcademicNames] = useState([
-    "Regular",
-    "Extension",
-    "Weekend",
-    "Shift",
-    "Masters",
-  ]);
+  const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState([
     "Regular",
     "Extension",
@@ -17,6 +11,11 @@ function App() {
     "Shift",
     "Masters",
   ]);
+
+  const handleDropDownChange = (value) => {
+    setAcademicNames([...academicNames, value]);
+  };
+
   return (
     <>
       <div className="stepContainer">
@@ -51,7 +50,12 @@ function App() {
           </div>
         ))}
       </div>
-      <select className="academictypesContainer dropDown">
+      <select
+        className="academictypesContainer dropDown"
+        onChange={(e) => {
+          handleDropDownChange(e.target.value);
+        }}
+      >
         <option value=""> Choose an academic type </option>
         {academicTypes.map((academicType, index) => (
           <option key={index} value={academicType}>
