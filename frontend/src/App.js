@@ -10,6 +10,13 @@ function App() {
     "Shift",
     "Masters",
   ]);
+  const [academicTypes, setAcademicTypes] = useState([
+    "Regular",
+    "Extension",
+    "Weekend",
+    "Shift",
+    "Masters",
+  ]);
   return (
     <>
       <div className="stepContainer">
@@ -35,7 +42,7 @@ function App() {
       </div>
       <h1 className="stepOneHeaderText"> Add Academic type</h1>
       <div className="academictypesContainer">
-        {academicNames.map((index, academicName) => (
+        {academicNames.map((academicName, index) => (
           <div key={index} className="academicType col-s-3">
             <div className="academicTypeText">{academicName}</div>
             <div className="closeIconContainer">
@@ -45,10 +52,13 @@ function App() {
         ))}
       </div>
       <select className="academictypesContainer dropDown">
-        <option> Regular </option>
-        <option> Extension </option>
-        <option> Weekend </option>
-        <option> Summer </option>
+        <option value=""> Choose an academic type </option>
+        {academicTypes.map((academicType, index) => (
+          <option key={index} value={academicType}>
+            {" "}
+            {academicType}{" "}
+          </option>
+        ))}
       </select>
       <input
         type="text"
