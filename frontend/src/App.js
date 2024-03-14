@@ -63,6 +63,13 @@ function App() {
         <option> Weekend </option>
         <option> Summer </option>
       </select>
+      <input
+        type="text"
+        name="customInput"
+        placeholder="Custom academic type"
+        className="academictypesContainer customAcademicTypeInput"
+      />
+      <button className=" addCustomAcademicTypeButton">Add Custom</button>
     </>
   );
 }
