@@ -127,7 +127,6 @@ select {
   width: 80%;
   margin: auto;
   height: auto;
-  background-color: black;
   display: flex;
   justify-content: flex-end;
   align-items: center;

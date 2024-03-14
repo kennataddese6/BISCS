@@ -39,6 +39,9 @@ function App() {
     setCustomAcademic("");
     toast.success("Custom academic type added!");
   };
+  const handleSubmit = () => {
+    console.log(academicNames);
+  };
   return (
     <>
       <ToastContainer />
@@ -112,7 +115,15 @@ function App() {
         Add Custom
       </button>
       <div className="nextButtonContainer">
-        <button className="nextStepButton"> Next </button>
+        <button
+          className="nextStepButton"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {" "}
+          Next{" "}
+        </button>
       </div>
     </>
   );
