@@ -13,6 +13,15 @@ function App() {
   ]);
 
   const handleDropDownChange = (value) => {
+    if (!value) {
+      //If there is no value return/exit
+      return;
+    }
+    const duplicateValue = academicNames.find((a) => a === value);
+    if (duplicateValue) {
+      //If teh value is already there exit
+      return;
+    }
     setAcademicNames([...academicNames, value]);
   };
   const handleRemoveAcademic = (value) => {
