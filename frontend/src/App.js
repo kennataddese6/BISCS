@@ -1,6 +1,15 @@
 import "./App.css";
 import { MdClose } from "react-icons/md";
+import { useState } from "react";
+
 function App() {
+  const [academicNames, setAcademicNames] = useState([
+    "Regular",
+    "Extension",
+    "Weekend",
+    "Shift",
+    "Masters",
+  ]);
   return (
     <>
       <div className="stepContainer">
@@ -26,36 +35,14 @@ function App() {
       </div>
       <h1 className="stepOneHeaderText"> Add Academic type</h1>
       <div className="academictypesContainer">
-        <div className="academicType col-s-3">
-          <div className="academicTypeText">Regular</div>
-          <div className="closeIconContainer">
-            <MdClose />
+        {academicNames.map((index, academicName) => (
+          <div key={index} className="academicType col-s-3">
+            <div className="academicTypeText">{academicName}</div>
+            <div className="closeIconContainer">
+              <MdClose />
+            </div>
           </div>
-        </div>
-        <div className="academicType col-s-3">
-          <div className="academicTypeText ">Extension</div>
-          <div className="closeIconContainer">
-            <MdClose />
-          </div>
-        </div>
-        <div className="academicType col-s-3">
-          <div className="academicTypeText">Weekend</div>
-          <div className="closeIconContainer">
-            <MdClose />
-          </div>
-        </div>
-        <div className="academicType col-s-3">
-          <div className="academicTypeText">Shift</div>
-          <div className="closeIconContainer">
-            <MdClose />
-          </div>
-        </div>
-        <div className="academicType col-s-3">
-          <div className="academicTypeText">Masters</div>
-          <div className="closeIconContainer">
-            <MdClose />
-          </div>
-        </div>
+        ))}
       </div>
       <select className="academictypesContainer dropDown">
         <option> Regular </option>
