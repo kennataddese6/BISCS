@@ -57,6 +57,12 @@ function App() {
           </div>
         </div>
       </div>
+      <select className="academictypesContainer">
+        <option> Regular </option>
+        <option> Extension </option>
+        <option> Weekend </option>
+        <option> Summer </option>
+      </select>
     </>
   );
 }
