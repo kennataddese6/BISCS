@@ -15,7 +15,10 @@ function App() {
   const handleDropDownChange = (value) => {
     setAcademicNames([...academicNames, value]);
   };
-
+  const handleRemoveAcademic = (value) => {
+    const newAcademicName = academicNames.filter((a) => a !== value);
+    setAcademicNames(newAcademicName);
+  };
   return (
     <>
       <div className="stepContainer">
@@ -44,7 +47,12 @@ function App() {
         {academicNames.map((academicName, index) => (
           <div key={index} className="academicType col-s-3">
             <div className="academicTypeText">{academicName}</div>
-            <div className="closeIconContainer">
+            <div
+              className="closeIconContainer"
+              onClick={() => {
+                handleRemoveAcademic(academicName);
+              }}
+            >
               <MdClose />
             </div>
           </div>
