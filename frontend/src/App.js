@@ -57,7 +57,7 @@ function App() {
           </div>
         </div>
       </div>
-      <select className="academictypesContainer">
+      <select className="academictypesContainer dropDown">
         <option> Regular </option>
         <option> Extension </option>
         <option> Weekend </option>
