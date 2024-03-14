@@ -52,3 +52,6 @@ export const academicSlice = createSlice({
       });
   },
 });
+
+export const { reset } = academicSlice.actions;
+export default academicSlice.reducer;
