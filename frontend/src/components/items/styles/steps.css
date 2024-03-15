@@ -1,119 +1,43 @@
-* {
-  box-sizing: border-box;
-}
-html,
-body,
-#root {
-  height: 100%;
-  background-color: #161414;
-}
-.mainContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.academicContainer {
-  margin: auto;
-  padding: 16px;
-  max-width: 500px;
-  width: 80%;
-}
-
-.stepOneHeaderText {
-  color: white;
+.stepContainer {
   text-align: center;
-}
-.academictypesContainer {
-  height: auto;
-  background-color: white;
-  margin: 32px auto;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 5px;
-}
-.academicType {
-  background-color: blueviolet;
   color: white;
-  width: 42%;
-  height: 30px;
-  font-size: 14px;
+  width: 90%;
+  margin-top: 32px;
+  height: auto;
+  background-color: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 12px;
-  margin: 8px;
-  cursor: auto;
+  flex-wrap: wrap;
 }
-.academicType:hover {
-  background-color: rgb(93, 31, 151);
-}
-.closeIconContainer {
+.subStepContainer {
   display: flex;
-  align-items: center;
-  font-size: 16px;
-  cursor: pointer;
 }
-.closeIconContainer:hover {
-  color: rgb(255, 0, 0);
-}
-.academicTypeText {
-  display: flex;
-  align-items: center;
-  align-self: center;
-  cursor: pointer;
-}
-select {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-}
-.customAcademicTypeInput {
-  width: 200px;
-  padding: 10px;
-  border: none;
-  margin: 0;
-}
-.addCustomAcademicTypeButton {
-  border: none;
-  text-align: center;
-  width: 200px;
-  height: auto;
-  background-color: white;
-  margin: 16px 0;
+.stepCircle {
+  background-color: blueviolet;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: blueviolet;
-  color: white;
-}
-.addCustomAcademicTypeButton:hover {
-  box-shadow: 0 0 8px rgb(115, 23, 202);
-}
-.nextButtonContainer {
-  text-align: center;
-  color: white;
-  margin-bottom: 16px;
-  width: 80%;
-  height: auto;
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
+  margin: 16px;
 }
-.nextStepButton {
-  margin-bottom: 16px;
-  padding: 20px 44px;
-  background-color: rgb(151, 81, 216);
-  border: none;
-  color: white;
-  cursor: pointer;
+.stepText {
+  justify-self: center;
+  align-self: center;
+}
+.stepLine {
+  width: 40%;
+  height: 3px;
+  background-color: blueviolet;
+  align-self: center;
+}
+.inactiveStep {
+  background-color: grey;
+}
+.inactiveText {
+  color: grey;
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {

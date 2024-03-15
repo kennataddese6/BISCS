@@ -1,3 +1,4 @@
+import "./styles/steps.css";
 const Steps = ({ stepNumber }) => {
   return (
     <div className="stepContainer">
