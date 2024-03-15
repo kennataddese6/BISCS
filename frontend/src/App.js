@@ -15,8 +15,11 @@ function App() {
   const { isLoading, isError, isSuccess } = useSelector(
     (state) => state.academic
   );
+  const [stepNumber, setStepNumber] = useState(1);
   useEffect(() => {
-    console.log(isLoading, isError, isSuccess);
+    if (isSuccess) {
+      setStepNumber((prevNumber) => prevNumber + 1);
+    }
   }, [isLoading, isError, isSuccess]);
   const handleDropDownChange = (value) => {
     if (!value) {
@@ -64,7 +67,7 @@ function App() {
       {isLoading && <Spinner />}
 
       <div className="mainContainer">
-        <Steps />
+        <Steps stepNumber={stepNumber} />
         <div className="academicContainer">
           <h1 className="stepOneHeaderText"> Add Academic type</h1>
           <div className="academictypesContainer">
