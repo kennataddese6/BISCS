@@ -1,14 +1,39 @@
 .addClearanceContainer {
   color: white;
-  background-color: green;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
 }
 .clearance {
   margin: 2px 0;
-  background-color: dodgerblue;
   width: 100%;
+}
+.addClearanceHeaderText {
+  text-align: center;
+}
+.clearancetypesContainer {
+  height: auto;
+  background-color: grey;
+  margin: 16px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+.clearanceType {
+  background-color: blueviolet;
+  color: white;
+  width: 42%;
+  height: 30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 12px;
+  margin: 8px;
+  cursor: auto;
+}
+.clearanceType:hover {
+  background-color: rgb(93, 31, 151);
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {
