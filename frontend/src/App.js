@@ -20,6 +20,7 @@ function App() {
     const duplicateValue = academicNames.find((a) => a === value);
     if (duplicateValue) {
       //If teh value is already there exit
+      toast.error(`${value} already added`);
       return;
     }
     setAcademicNames([...academicNames, value]);
@@ -36,6 +37,8 @@ function App() {
     const duplicateValue = academicTypes.find((a) => a === customAcademic);
     if (duplicateValue) {
       //If teh value is already there exit
+      toast.error(`${customAcademic} already added`);
+
       return;
     }
     setAcademicTypes([...academicTypes, customAcademic]);
@@ -43,7 +46,10 @@ function App() {
     toast.success("Custom academic type added!");
   };
   const handleSubmit = () => {
-    console.log(academicNames);
+    if (!academicNames.length) {
+      toast.error("Please add academic types");
+      return;
+    }
     dispatch(createAcademicType(academicNames));
   };
   return (
