@@ -1,17 +1,23 @@
 import "./App.css";
 import { MdClose } from "react-icons/md";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createAcademicType } from "./features/academicType/academicSlice";
 import Steps from "./components/items/steps";
+import Spinner from "./components/items/utilities/Spinner";
 function App() {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
-
+  const { isLoading, isError, isSuccess } = useSelector(
+    (state) => state.academic
+  );
+  useEffect(() => {
+    console.log(isLoading, isError, isSuccess);
+  }, [isLoading, isError, isSuccess]);
   const handleDropDownChange = (value) => {
     if (!value) {
       //If there is no value return/exit
@@ -55,6 +61,8 @@ function App() {
   return (
     <>
       <ToastContainer />
+      {isLoading && <Spinner />}
+
       <div className="mainContainer">
         <Steps />
         <div className="academicContainer">
