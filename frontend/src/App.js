@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createAcademicType } from "./features/academicType/academicSlice";
-
+import Steps from "./components/items/steps";
 function App() {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
@@ -56,27 +56,7 @@ function App() {
     <>
       <ToastContainer />
       <div className="mainContainer">
-        <div className="stepContainer">
-          <div className="subStepContainer">
-            <div className="stepCircle"> 1 </div>
-            <div className="stepText"> Academic </div>
-          </div>
-          <div className="stepLine col-s-1 col-l-1 col-m-1"> </div>
-          <div className="subStepContainer">
-            <div className="stepCircle inactiveStep"> 2 </div>
-            <div className="stepText inactiveText"> Clearance </div>
-          </div>
-          <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
-          <div className="subStepContainer">
-            <div className="stepCircle inactiveStep "> 3 </div>
-            <div className="stepText inactiveText"> Define rule </div>
-          </div>
-          <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
-          <div className="subStepContainer">
-            <div className="stepCircle inactiveStep"> 4 </div>
-            <div className="stepText inactiveText"> Complete </div>
-          </div>
-        </div>
+        <Steps />
         <div className="academicContainer">
           <h1 className="stepOneHeaderText"> Add Academic type</h1>
           <div className="academictypesContainer">
