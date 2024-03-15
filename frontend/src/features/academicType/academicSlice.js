@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
+  message: "",
 };
 
 // create academic type
@@ -13,6 +14,23 @@ export const createAcademicType = createAsyncThunk(
   async (academicName, thunkAPI) => {
     try {
       return await academicService.createAcademicType(academicName);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+// Get academic types
+export const getAcademicTypes = createAsyncThunk(
+  "academic/get",
+  async (_, thunkAPI) => {
+    try {
+      return await academicService.getAcademicTypes();
     } catch (error) {
       const message =
         (error.response &&
@@ -44,9 +62,20 @@ export const academicSlice = createSlice({
       .addCase(createAcademicType.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.message = action.payload;
       })
       .addCase(createAcademicType.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addCase(getAcademicTypes.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAcademicTypes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = action.payload;
+      })
+      .addCase(getAcademicTypes.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });

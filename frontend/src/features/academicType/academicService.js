@@ -6,7 +6,7 @@ const createAcademicType = async (academicNames) => {
   return response.data;
 };
 const getAcademicTypes = async () => {
-  const response = await axios.post(API_URL + "academicType");
+  const response = await axios.get(API_URL + "academicType");
   console.log(response);
   return response.data;
 };
