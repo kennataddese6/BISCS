@@ -1,22 +1,37 @@
 * {
   box-sizing: border-box;
 }
-body {
-  width: 100%;
+html,
+body,
+#root {
   height: 100%;
   background-color: #161414;
+}
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .stepContainer {
   text-align: center;
   color: white;
   width: 90%;
-  margin: 32px auto;
+  margin-top: 32px;
   height: auto;
   background-color: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+.academicContainer {
+  margin: auto;
+  padding: 16px;
+  max-width: 500px;
+  width: 80%;
 }
 .subStepContainer {
   display: flex;
@@ -52,8 +67,6 @@ body {
   text-align: center;
 }
 .academictypesContainer {
-  max-width: 500px;
-  width: 80%;
   height: auto;
   background-color: white;
   margin: 32px auto;
@@ -97,19 +110,21 @@ select {
   border: none;
   border-radius: 5px;
   font-size: 16px;
+  width: 100%;
 }
 .customAcademicTypeInput {
+  width: 200px;
   padding: 10px;
   border: none;
+  margin: 0;
 }
 .addCustomAcademicTypeButton {
   border: none;
   text-align: center;
-  max-width: 500px;
-  width: 80%;
+  width: 200px;
   height: auto;
   background-color: white;
-  margin: 32px auto;
+  margin: 16px 0;
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -124,14 +139,15 @@ select {
 .nextButtonContainer {
   text-align: center;
   color: white;
+  margin-bottom: 16px;
   width: 80%;
-  margin: auto;
   height: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 .nextStepButton {
+  margin-bottom: 16px;
   padding: 20px 44px;
   background-color: rgb(151, 81, 216);
   border: none;

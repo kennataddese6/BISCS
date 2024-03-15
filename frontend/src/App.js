@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createAcademicType } from "./features/academicType/academicSlice";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
@@ -44,90 +44,94 @@ function App() {
   };
   const handleSubmit = () => {
     console.log(academicNames);
-    dispatch(createAcademicType(academicNames))
+    dispatch(createAcademicType(academicNames));
   };
   return (
     <>
       <ToastContainer />
-      <div className="stepContainer">
-        <div className="subStepContainer">
-          <div className="stepCircle"> 1 </div>
-          <div className="stepText"> Academic </div>
-        </div>
-        <div className="stepLine col-s-1 col-l-1 col-m-1"> </div>
-        <div className="subStepContainer">
-          <div className="stepCircle inactiveStep"> 2 </div>
-          <div className="stepText inactiveText"> Clearance </div>
-        </div>
-        <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
-        <div className="subStepContainer">
-          <div className="stepCircle inactiveStep "> 3 </div>
-          <div className="stepText inactiveText"> Define rule </div>
-        </div>
-        <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
-        <div className="subStepContainer">
-          <div className="stepCircle inactiveStep"> 4 </div>
-          <div className="stepText inactiveText"> Complete </div>
-        </div>
-      </div>
-      <h1 className="stepOneHeaderText"> Add Academic type</h1>
-      <div className="academictypesContainer">
-        {academicNames.map((academicName, index) => (
-          <div key={index} className="academicType col-s-3">
-            <div className="academicTypeText">{academicName}</div>
-            <div
-              className="closeIconContainer"
-              onClick={() => {
-                handleRemoveAcademic(academicName);
-              }}
-            >
-              <MdClose />
-            </div>
+      <div className="mainContainer">
+        <div className="stepContainer">
+          <div className="subStepContainer">
+            <div className="stepCircle"> 1 </div>
+            <div className="stepText"> Academic </div>
           </div>
-        ))}
-      </div>
-      <select
-        className="academictypesContainer dropDown"
-        onChange={(e) => {
-          handleDropDownChange(e.target.value);
-        }}
-      >
-        <option value=""> Choose an academic type </option>
-        {academicTypes.map((academicType, index) => (
-          <option key={index} value={academicType}>
+          <div className="stepLine col-s-1 col-l-1 col-m-1"> </div>
+          <div className="subStepContainer">
+            <div className="stepCircle inactiveStep"> 2 </div>
+            <div className="stepText inactiveText"> Clearance </div>
+          </div>
+          <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
+          <div className="subStepContainer">
+            <div className="stepCircle inactiveStep "> 3 </div>
+            <div className="stepText inactiveText"> Define rule </div>
+          </div>
+          <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
+          <div className="subStepContainer">
+            <div className="stepCircle inactiveStep"> 4 </div>
+            <div className="stepText inactiveText"> Complete </div>
+          </div>
+        </div>
+        <div className="academicContainer">
+          <h1 className="stepOneHeaderText"> Add Academic type</h1>
+          <div className="academictypesContainer">
+            {academicNames.map((academicName, index) => (
+              <div key={index} className="academicType col-s-3">
+                <div className="academicTypeText">{academicName}</div>
+                <div
+                  className="closeIconContainer"
+                  onClick={() => {
+                    handleRemoveAcademic(academicName);
+                  }}
+                >
+                  <MdClose />
+                </div>
+              </div>
+            ))}
+          </div>
+          <select
+            className="academictypesContainer dropDown"
+            onChange={(e) => {
+              handleDropDownChange(e.target.value);
+            }}
+          >
+            <option value=""> Choose an academic type </option>
+            {academicTypes.map((academicType, index) => (
+              <option key={index} value={academicType}>
+                {" "}
+                {academicType}{" "}
+              </option>
+            ))}
+          </select>
+          <input
+            type="text"
+            name="customInput"
+            placeholder="Custom academic type"
+            className="academictypesContainer customAcademicTypeInput"
+            value={customAcademic}
+            onChange={(e) => {
+              setCustomAcademic(e.target.value);
+            }}
+          />
+          <button
+            className=" addCustomAcademicTypeButton"
+            onClick={() => {
+              handleAddCustomAcademic();
+            }}
+          >
+            Add Custom
+          </button>
+        </div>
+        <div className="nextButtonContainer">
+          <button
+            className="nextStepButton"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
             {" "}
-            {academicType}{" "}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        name="customInput"
-        placeholder="Custom academic type"
-        className="academictypesContainer customAcademicTypeInput"
-        value={customAcademic}
-        onChange={(e) => {
-          setCustomAcademic(e.target.value);
-        }}
-      />
-      <button
-        className=" addCustomAcademicTypeButton"
-        onClick={() => {
-          handleAddCustomAcademic();
-        }}
-      >
-        Add Custom
-      </button>
-      <div className="nextButtonContainer">
-        <button
-          className="nextStepButton"
-          onClick={() => {
-            handleSubmit();
-          }}
-        >
-          {" "}
-          Next{" "}
-        </button>
+            Next{" "}
+          </button>
+        </div>
       </div>
     </>
   );
