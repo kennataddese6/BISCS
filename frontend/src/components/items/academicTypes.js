@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createAcademicType } from "../../features/academicType/academicSlice";
+import "./styles/academictype.css";
 const AcademicTypes = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
@@ -75,7 +76,7 @@ const AcademicTypes = ({ setStepNumber }) => {
           ))}
         </div>
         <select
-          className="academictypesContainer dropDown"
+          className="academictypesContainer"
           onChange={(e) => {
             handleDropDownChange(e.target.value);
           }}
