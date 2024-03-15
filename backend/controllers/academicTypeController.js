@@ -6,18 +6,23 @@ const createAcademicType = asyncHandler(async (req, res) => {
   // It takes request from the frontend (req)
   let result;
   const AcademicTypes = req.body;
-  AcademicTypes &&
-    AcademicTypes.map(async (academicType) => {
-      result = await AcademicType.create({
-        AcademicName: academicType,
-      });
-    });
 
-  if (result) {
-    res.status(200).json("Your request was successful. Academic type created");
-  } else {
-    res.status(400).json("Your request was not successful");
-  }
+  const newPromise = new Promise((resolve, reject) => {
+    AcademicTypes &&
+      AcademicTypes.map(async (academicType) => {
+        result = await AcademicType.create({
+          AcademicName: academicType,
+        });
+        resolve(result);
+      });
+  });
+  newPromise
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((error) => {
+      res.status(400).json("Your request was not successful", error);
+    });
 });
 //This is a function to get all academic types
 const getAcademicType = asyncHandler(async (req, res) => {
