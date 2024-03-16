@@ -25,7 +25,16 @@ const AddClearance = () => {
     },
     {
       clearanceItemFor: "Extension",
-      clearanceItem: ["Dorm", "Cafe", "Departement"],
+      clearanceItem: [
+        "Department",
+        "CDE Office",
+        "CBE coordinator",
+        "Librarian",
+        "Book Store keeper",
+        "Head,Budget & Finance",
+        "University Police",
+        "Registerar Office",
+      ],
     },
     {
       clearanceItemFor: "Weekend",
