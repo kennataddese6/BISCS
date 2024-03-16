@@ -12,7 +12,16 @@ const AddClearance = () => {
   const [clearanceItems, setClearanceItems] = useState([
     {
       clearanceItemFor: "Regular",
-      clearanceItem: ["Dorm"],
+      clearanceItem: [
+        "Department",
+        "Book Store Keeper",
+        "Librarian",
+        "Food Service",
+        "Housing",
+        "StoreKeeper",
+        "University Police",
+        "Registrar Office",
+      ],
     },
     {
       clearanceItemFor: "Extension",
