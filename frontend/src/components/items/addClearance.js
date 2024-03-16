@@ -8,23 +8,51 @@ import { MdClose } from "react-icons/md";
 const AddClearance = () => {
   const dispatch = useDispatch();
   const [clearanceNames, setClearanceNames] = useState([
-    "Dormitory",
-    "Cafteria",
-    "Finance",
-    "Department",
+    {
+      clearancefor: "Regular",
+      clearance: ["Dorm", "Cafe", "Departement"],
+    },
+    {
+      clearancefor: "Extension",
+      clearance: ["Departement"],
+    },
+    {
+      clearancefor: "Weekend",
+      clearance: ["Cafe", "Departement"],
+    },
   ]);
+
   const { isError, isSuccess, message } = useSelector(
     (state) => state.academic
   );
-  const handleRemoveAcademic = (value) => {
-    const newclearancName = clearanceNames.filter((a) => a !== value);
+  const handleRemoveAcademic = (value, identifier) => {
+    console.log(value, identifier);
+    const newclearancName = clearanceNames.map((clearanceName) =>
+      clearanceName.clearancefor === identifier
+        ? {
+            ...clearanceName,
+            clearance: clearanceName.clearance.filter((a) => a !== value),
+          }
+        : clearanceName
+    );
+    console.log(newclearancName);
     setClearanceNames(newclearancName);
   };
   useEffect(() => {
     dispatch(getAcademicTypes());
   }, [dispatch]);
   useEffect(() => {
-    console.log(isError, isSuccess, message);
+    /*     if (isSuccess) {
+      const initialClearance = message.map((acadamicNames) => {
+        const data = {
+          clearance: ["Dormitory", "Cafe"],
+          clearancfor: acadamicNames.AcademicName,
+        };
+        return data;
+      });
+      console.log(initialClearance);
+      setClearanceNames(...clearanceNames, initialClearance);
+    } */
   }, [isSuccess, isError, message]);
   return (
     <>
@@ -36,19 +64,34 @@ const AddClearance = () => {
                 Add clearance for {AcademicNames.AcademicName}
               </h3>
               <div className="clearancetypesContainer">
-                {clearanceNames.map((clearanceName, index) => (
-                  <div key={index} className="clearanceType col-s-4  col-xl-3">
-                    <div className="academicTypeText">{clearanceName}</div>
-                    <div
-                      className="closeIconContainer"
-                      onClick={() => {
-                        handleRemoveAcademic(clearanceName);
-                      }}
-                    >
-                      <MdClose />
-                    </div>
-                  </div>
-                ))}
+                {clearanceNames &&
+                  clearanceNames.map((clearanceName, index) => (
+                    <>
+                      {clearanceName.clearancefor === AcademicNames.AcademicName
+                        ? clearanceName.clearance.map((oneClearance, index) => (
+                            <div
+                              key={index}
+                              className="clearanceType col-s-4  col-xl-3"
+                            >
+                              <div className="academicTypeText">
+                                {oneClearance}
+                              </div>
+                              <div
+                                className="closeIconContainer"
+                                onClick={() => {
+                                  handleRemoveAcademic(
+                                    oneClearance,
+                                    clearanceName.clearancefor
+                                  );
+                                }}
+                              >
+                                <MdClose />
+                              </div>
+                            </div>
+                          ))
+                        : ""}
+                    </>
+                  ))}
               </div>
             </div>
           ))}
