@@ -239,6 +239,9 @@ select {
   align-items: center;
   align-self: center;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .closeIconContainer {
   display: flex;
