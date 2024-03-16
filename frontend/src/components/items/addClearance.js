@@ -57,6 +57,9 @@ const AddClearance = () => {
     setClearanceNames(newclearancName);
   };
   const handleDropDownChange = (clearanceName, target) => {
+    if (!clearanceName) {
+      return;
+    }
     const newClearanceNames = clearanceNames.map((oneClearance) =>
       oneClearance.clearancefor === target
         ? {
