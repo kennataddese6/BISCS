@@ -4,6 +4,7 @@ import { getAcademicTypes } from "../../features/academicType/academicSlice";
 import "./styles/addclearance.css";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const AddClearance = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,19 @@ const AddClearance = () => {
   };
   const handleDropDownChange = (clearanceName, target) => {
     if (!clearanceName) {
+      return;
+    }
+    let duplicateValue;
+    for (let i = 0; i < clearanceNames.length; i++) {
+      duplicateValue =
+        clearanceNames[i].clearancefor === target &&
+        clearanceNames[i].clearance.find((a) => a === clearanceName);
+      if (duplicateValue) {
+        toast.error(`${duplicateValue} already added!`);
+        break;
+      }
+    }
+    if (duplicateValue) {
       return;
     }
     const newClearanceNames = clearanceNames.map((oneClearance) =>
