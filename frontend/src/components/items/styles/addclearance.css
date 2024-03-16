@@ -35,6 +35,15 @@
 .clearanceType:hover {
   background-color: rgb(93, 31, 151);
 }
+.clearancetypesDropDown {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 98%;
+  margin: auto;
+  display: block;
+}
 @media only screen and (min-width: 600px) {
   .col-s-1 {
     width: 8.33%;
