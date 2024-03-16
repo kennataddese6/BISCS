@@ -7,7 +7,8 @@ import { MdClose } from "react-icons/md";
 
 const AddClearance = () => {
   const dispatch = useDispatch();
-  const [clearanceNames, setClearanceNames] = useState([
+  const [clearanceNames, setClearanceNames] =
+    useState(/* [
     {
       clearancefor: "Regular",
       clearance: ["Dorm", "Cafe", "Departement"],
@@ -20,13 +21,12 @@ const AddClearance = () => {
       clearancefor: "Weekend",
       clearance: ["Cafe", "Departement"],
     },
-  ]);
+  ] */);
 
   const { isError, isSuccess, message } = useSelector(
     (state) => state.academic
   );
   const handleRemoveAcademic = (value, identifier) => {
-    console.log(value, identifier);
     const newclearancName = clearanceNames.map((clearanceName) =>
       clearanceName.clearancefor === identifier
         ? {
@@ -35,37 +35,36 @@ const AddClearance = () => {
           }
         : clearanceName
     );
-    console.log(newclearancName);
     setClearanceNames(newclearancName);
   };
   useEffect(() => {
     dispatch(getAcademicTypes());
   }, [dispatch]);
   useEffect(() => {
-    /*     if (isSuccess) {
+    if (isSuccess) {
       const initialClearance = message.map((acadamicNames) => {
         const data = {
           clearance: ["Dormitory", "Cafe"],
-          clearancfor: acadamicNames.AcademicName,
+          clearancefor: acadamicNames.AcademicName,
         };
         return data;
       });
-      console.log(initialClearance);
-      setClearanceNames(...clearanceNames, initialClearance);
-    } */
+      setClearanceNames(initialClearance);
+    }
   }, [isSuccess, isError, message]);
+
   return (
     <>
       <div className="addClearanceContainer">
         {message &&
-          message.map((AcademicNames) => (
-            <div className="clearance col-l-4 ">
+          message.map((AcademicNames, index) => (
+            <div key={index} className="clearance col-l-4 ">
               <h3 className="addClearanceHeaderText">
                 Add clearance for {AcademicNames.AcademicName}
               </h3>
               <div className="clearancetypesContainer">
                 {clearanceNames &&
-                  clearanceNames.map((clearanceName, index) => (
+                  clearanceNames.map((clearanceName) => (
                     <>
                       {clearanceName.clearancefor === AcademicNames.AcademicName
                         ? clearanceName.clearance.map((oneClearance, index) => (
