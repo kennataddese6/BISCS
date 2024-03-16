@@ -117,7 +117,7 @@ const AddClearance = () => {
                         ? clearanceName.clearance.map((oneClearance, index) => (
                             <div
                               key={index}
-                              className="clearanceType col-s-4  col-xl-3"
+                              className="clearanceType col-s-4 col-l-5 col-xl-3"
                             >
                               <div className="academicTypeText">
                                 {oneClearance}
