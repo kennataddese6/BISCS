@@ -37,6 +37,17 @@ const AddClearance = () => {
     );
     setClearanceNames(newclearancName);
   };
+  const handleDropDownChange = (clearanceName, target) => {
+    const newClearanceNames = clearanceNames.map((oneClearance) =>
+      oneClearance.clearancefor === target
+        ? {
+            ...oneClearance,
+            clearance: [...oneClearance.clearance, clearanceName],
+          }
+        : oneClearance
+    );
+    setClearanceNames(newClearanceNames);
+  };
   useEffect(() => {
     dispatch(getAcademicTypes());
   }, [dispatch]);
@@ -92,6 +103,20 @@ const AddClearance = () => {
                     </>
                   ))}
               </div>
+              <select
+                className="clearancetypesDropDown"
+                onChange={(e) => {
+                  handleDropDownChange(
+                    e.target.value,
+                    AcademicNames.AcademicName
+                  );
+                }}
+              >
+                <option value=""> Choose an Clearance type </option>
+                <option> Dormitory </option>
+                <option> Cafe </option>
+                <option> Departement </option>
+              </select>
             </div>
           ))}
       </div>
