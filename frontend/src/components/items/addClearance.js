@@ -7,21 +7,22 @@ import { MdClose } from "react-icons/md";
 
 const AddClearance = () => {
   const dispatch = useDispatch();
-  const [clearanceNames, setClearanceNames] =
-    useState(/* [
+  const [clearanceNames, setClearanceNames] = useState();
+
+  const [clearanceItems, setClearanceItems] = useState([
     {
-      clearancefor: "Regular",
-      clearance: ["Dorm", "Cafe", "Departement"],
+      clearanceItemFor: "Regular",
+      clearanceItem: ["Dorm"],
     },
     {
-      clearancefor: "Extension",
-      clearance: ["Departement"],
+      clearanceItemFor: "Extension",
+      clearanceItem: ["Dorm", "Cafe", "Departement"],
     },
     {
-      clearancefor: "Weekend",
-      clearance: ["Cafe", "Departement"],
+      clearanceItemFor: "Weekend",
+      clearanceItem: ["Dorm", "Cafe"],
     },
-  ] */);
+  ]);
 
   const { isError, isSuccess, message } = useSelector(
     (state) => state.academic
@@ -113,9 +114,16 @@ const AddClearance = () => {
                 }}
               >
                 <option value=""> Choose an Clearance type </option>
-                <option> Dormitory </option>
-                <option> Cafe </option>
-                <option> Departement </option>
+                {clearanceItems.map((oneClearanceItem) => (
+                  <>
+                    {oneClearanceItem.clearanceItemFor ===
+                    AcademicNames.AcademicName
+                      ? oneClearanceItem.clearanceItem.map((clearanceName) => (
+                          <option> {clearanceName}</option>
+                        ))
+                      : ""}
+                  </>
+                ))}
               </select>
             </div>
           ))}
