@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const AddClearance = () => {
   const dispatch = useDispatch();
   const [clearanceNames, setClearanceNames] = useState();
-
+  const [customClearanceTypes, setCustomClearanceTypes] = useState();
   const [clearanceItems, setClearanceItems] = useState([
     {
       clearanceItemFor: 'Regular',
@@ -81,6 +81,9 @@ const AddClearance = () => {
         : oneClearance,
     );
     setClearanceNames(newClearanceNames);
+  };
+  const handleAddingCustomClearanceTyes = target => {
+    console.log(customClearanceTypes, target);
   };
   useEffect(() => {
     dispatch(getAcademicTypes());
@@ -165,8 +168,16 @@ const AddClearance = () => {
                 name="customInput"
                 placeholder="Custom clearance type"
                 className="customClearanceInput"
+                onChange={e => {
+                  setCustomClearanceTypes(e.target.value);
+                }}
               />
-              <button className="addCustomClearanceTypeButton">
+              <button
+                className="addCustomClearanceTypeButton"
+                onClick={() =>
+                  handleAddingCustomClearanceTyes(AcademicNames.AcademicName)
+                }
+              >
                 Add Custom
               </button>
             </div>
