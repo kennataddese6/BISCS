@@ -44,6 +44,12 @@
   margin: auto;
   display: block;
 }
+.customClearanceInput{
+padding:10px;
+border: none;
+margin: 12px 4px;
+border-radius: 5px;
+}
 @media only screen and (min-width: 600px) {
   .col-s-1 {
     width: 8.33%;

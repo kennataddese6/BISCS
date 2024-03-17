@@ -89,7 +89,7 @@ const AddClearance = () => {
   }, [dispatch]);
   useEffect(() => {
     if (isSuccess) {
-      const initialClearance = message.map((acadamicNames) => {
+      const initialClearance = message && message.map((acadamicNames) => {
         const data = {
           clearance: ["Dormitory", "Cafe"],
           clearancefor: acadamicNames.AcademicName,
@@ -160,6 +160,12 @@ const AddClearance = () => {
                   </>
                 ))}
               </select>
+              <input
+          type="text"
+          name="customInput"
+          placeholder="Custom clearance type"
+          className="customClearanceInput"
+        />
             </div>
           ))}
       </div>
