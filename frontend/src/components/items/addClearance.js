@@ -9,7 +9,7 @@ import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { toast } from "react-toastify";
 
-const AddClearance = () => {
+const AddClearance = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [clearanceNames, setClearanceNames] = useState();
   const [customClearanceTypes, setCustomClearanceTypes] = useState();
@@ -46,7 +46,7 @@ const AddClearance = () => {
     },
   ]);
 
-  const { isError, isSuccess, message } = useSelector(
+  const { isError, isSuccess, message, isSuccessUpdateClearance } = useSelector(
     (state) => state.clearance
   );
   const handleRemoveAcademic = (value, identifier) => {
@@ -126,6 +126,9 @@ const AddClearance = () => {
     dispatch(getClearanceTypes());
   }, [dispatch]);
   useEffect(() => {
+    if (isSuccessUpdateClearance) {
+      setStepNumber((prevState) => prevState + 1);
+    }
     if (isSuccess) {
       const initialClearance =
         message &&
@@ -149,7 +152,7 @@ const AddClearance = () => {
       setClearanceNames(initialClearance);
       setClearanceItems(initialClearanceTypes);
     }
-  }, [isSuccess, isError, message]);
+  }, [isSuccess, isError, message, isSuccessUpdateClearance,setStepNumber]);
 
   return (
     <>
