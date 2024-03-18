@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
+import {
+  getClearanceTypes,
+  updateClearance,
+} from "../../features/academicType/clearanceSlice";
 import "./styles/addclearance.css";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
@@ -116,6 +119,9 @@ const AddClearance = () => {
     toast.success(`${customClearanceTypes} added!`);
     setCustomClearanceTypes();
   };
+  const handleAddClearance = () => {
+    dispatch(updateClearance(clearanceItems));
+  };
   useEffect(() => {
     dispatch(getClearanceTypes());
   }, [dispatch]);
@@ -227,7 +233,15 @@ const AddClearance = () => {
           ))}
       </div>
       <div className="nextButtonContainer">
-        <button className="nextStepButton"> Next </button>
+        <button
+          className="nextStepButton"
+          onClick={() => {
+            handleAddClearance();
+          }}
+        >
+          {" "}
+          Next{" "}
+        </button>
       </div>
     </>
   );

@@ -42,6 +42,23 @@ export const getClearanceTypes = createAsyncThunk(
     }
   }
 );
+// Get update types
+export const updateClearance = createAsyncThunk(
+  "academic/updateClearnce",
+  async (data, thunkAPI) => {
+    try {
+      return await academicService.updateClearance(data);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const academicSlice = createSlice({
   name: "academic",
@@ -76,6 +93,18 @@ export const academicSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(getClearanceTypes.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addCase(updateClearance.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateClearance.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = action.payload;
+      })
+      .addCase(updateClearance.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });
