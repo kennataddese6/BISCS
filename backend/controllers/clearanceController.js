@@ -33,8 +33,11 @@ const getClearanceType = asyncHandler(async (req, res) => {
     res.status(400).json("No academic Type found!");
   }
 });
-
+const updateClearance = asyncHandler(async (req, res) => {
+  console.log(req.body);
+});
 module.exports = {
   createClearanceType,
   getClearanceType,
+  updateClearance,
 };
