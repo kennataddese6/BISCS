@@ -194,16 +194,17 @@ const AddClearance = () => {
                 }}
               >
                 <option value=""> Choose an Clearance type </option>
-                {clearanceItems.map((oneClearanceItem) => (
-                  <>
-                    {oneClearanceItem.clearanceItemFor ===
-                    AcademicNames.AcademicName
-                      ? oneClearanceItem.clearanceItem.map((clearanceName) => (
-                          <option> {clearanceName}</option>
-                        ))
-                      : ""}
-                  </>
-                ))}
+                {clearanceItems &&
+                  clearanceItems.map((oneClearanceItem) => (
+                    <>
+                      {oneClearanceItem.clearanceItemFor ===
+                      AcademicNames.AcademicName
+                        ? oneClearanceItem.clearanceItem.map(
+                            (clearanceName) => <option> {clearanceName}</option>
+                          )
+                        : ""}
+                    </>
+                  ))}
               </select>
               <input
                 type="text"
