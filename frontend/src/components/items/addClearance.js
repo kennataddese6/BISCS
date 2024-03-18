@@ -34,7 +34,7 @@ const AddClearance = () => {
         "Book Store keeper",
         "Head,Budget & Finance",
         "University Police",
-        "Registerar Office",
+        "Registrar Office",
       ],
     },
     {
@@ -115,6 +115,17 @@ const AddClearance = () => {
           return data;
         });
       setClearanceNames(initialClearance);
+      const initialClearanceTypes =
+        message &&
+        message.map((acadamicNames) => {
+          const data = {
+            clearanceItem: ["Registrar Office", "University Police"],
+            clearanceItemFor: acadamicNames.AcademicName,
+          };
+          return data;
+        });
+      setClearanceNames(initialClearance);
+      setClearanceItems(initialClearanceTypes);
     }
   }, [isSuccess, isError, message]);
 
