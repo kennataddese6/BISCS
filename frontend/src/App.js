@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Steps from "./components/items/steps";
 import Spinner from "./components/items/utilities/Spinner";
-import AcademicTypes from "./components/items/clearanceTypes";
+import ClearanceTypes from "./components/items/clearanceTypes";
 import AddClearance from "./components/items/addClearance";
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
@@ -18,7 +18,7 @@ function App() {
 
       <div className="mainContainer">
         <Steps stepNumber={stepNumber} />
-        {stepNumber === 1 && <AcademicTypes setStepNumber={setStepNumber} />}
+        {stepNumber === 1 && <ClearanceTypes setStepNumber={setStepNumber} />}
         {stepNumber === 2 && <AddClearance />}
       </div>
     </>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createClearanceType } from "../../features/academicType/clearanceSlice";
 import "./styles/academictype.css";
-const AcademicTypes = ({ setStepNumber }) => {
+const ClearanceTypes = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
@@ -122,4 +122,4 @@ const AcademicTypes = ({ setStepNumber }) => {
     </>
   );
 };
-export default AcademicTypes;
+export default ClearanceTypes;
