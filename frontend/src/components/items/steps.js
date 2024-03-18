@@ -24,8 +24,14 @@ const Steps = ({ stepNumber }) => {
         {" "}
       </div>
       <div className="subStepContainer">
-        <div className="stepCircle inactiveStep "> 3 </div>
-        <div className="stepText inactiveText"> Define rule </div>
+        <div className={`stepCircle ${stepNumber < 3 && `inactiveStep`} `}>
+          {" "}
+          3{" "}
+        </div>
+        <div className={`stepText ${stepNumber < 2 && `inactiveText`} `}>
+          {" "}
+          Define rule{" "}
+        </div>
       </div>
       <div className="stepLine inactiveStep col-s-1 col-l-1 col-m-1"> </div>
       <div className="subStepContainer">
