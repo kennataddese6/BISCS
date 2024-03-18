@@ -18,6 +18,10 @@ const ClearanceDetail = new mongoose.Schema({
   PreRequestName: {
     type: String,
   },
+  StudentAppeal: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const ClearanceSchema = mongoose.Schema({
@@ -34,7 +38,7 @@ const ClearanceSchema = mongoose.Schema({
   AdminId: {
     type: String,
   },
-  Complete: {
+  Completed: {
     type: Boolean,
     default: false,
   },
@@ -46,7 +50,7 @@ const ClearanceSchema = mongoose.Schema({
     type: Date,
   },
   ClearanceDetail: {
-    type: ClearanceDetail,
+    type: [ClearanceDetail],
   },
 });
 
