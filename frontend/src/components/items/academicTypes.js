@@ -2,7 +2,7 @@ import { MdClose } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { createAcademicType } from "../../features/academicType/academicSlice";
+import { createClearanceType } from "../../features/academicType/academicSlice";
 import "./styles/academictype.css";
 const AcademicTypes = ({ setStepNumber }) => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const AcademicTypes = ({ setStepNumber }) => {
       toast.error("Please add academic types");
       return;
     }
-    dispatch(createAcademicType(academicNames));
+    dispatch(createClearanceType(academicNames));
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAcademicTypes } from "../../features/academicType/academicSlice";
+import { getClearanceTypes } from "../../features/academicType/academicSlice";
 import "./styles/addclearance.css";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
@@ -117,7 +117,7 @@ const AddClearance = () => {
     setCustomClearanceTypes();
   };
   useEffect(() => {
-    dispatch(getAcademicTypes());
+    dispatch(getClearanceTypes());
   }, [dispatch]);
   useEffect(() => {
     if (isSuccess) {

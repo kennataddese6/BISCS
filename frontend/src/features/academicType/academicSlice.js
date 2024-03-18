@@ -9,11 +9,11 @@ const initialState = {
 };
 
 // create academic type
-export const createAcademicType = createAsyncThunk(
+export const createClearanceType = createAsyncThunk(
   "academic/create",
   async (academicName, thunkAPI) => {
     try {
-      return await academicService.createAcademicType(academicName);
+      return await academicService.createClearanceType(academicName);
     } catch (error) {
       const message =
         (error.response &&
@@ -26,11 +26,11 @@ export const createAcademicType = createAsyncThunk(
   }
 );
 // Get academic types
-export const getAcademicTypes = createAsyncThunk(
+export const getClearanceTypes = createAsyncThunk(
   "academic/get",
   async (_, thunkAPI) => {
     try {
-      return await academicService.getAcademicTypes();
+      return await academicService.getClearanceTypes();
     } catch (error) {
       const message =
         (error.response &&
@@ -56,26 +56,26 @@ export const academicSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // to register Floor
-      .addCase(createAcademicType.pending, (state) => {
+      .addCase(createClearanceType.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createAcademicType.fulfilled, (state, action) => {
+      .addCase(createClearanceType.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
       })
-      .addCase(createAcademicType.rejected, (state) => {
+      .addCase(createClearanceType.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       })
-      .addCase(getAcademicTypes.pending, (state) => {
+      .addCase(getClearanceTypes.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getAcademicTypes.fulfilled, (state, action) => {
+      .addCase(getClearanceTypes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.message = action.payload;
       })
-      .addCase(getAcademicTypes.rejected, (state) => {
+      .addCase(getClearanceTypes.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });
