@@ -111,6 +111,7 @@ const AddClearance = () => {
         : clearanceItem
     );
     console.log(newClearanceItems);
+    toast.success(`${customClearanceTypes} added!`);
     setClearanceItems(newClearanceItems);
   };
   useEffect(() => {
