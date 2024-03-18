@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import academicReducer from "../features/academicType/academicSlice";
+import clearanceReducer from "../features/academicType/clearanceSlice";
 
 export const store = configureStore(
   {
     reducer: {
-      academic: academicReducer,
+      clearance: clearanceReducer,
     },
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

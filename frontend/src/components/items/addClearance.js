@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getClearanceTypes } from "../../features/academicType/academicSlice";
+import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
 import "./styles/addclearance.css";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
@@ -44,7 +44,7 @@ const AddClearance = () => {
   ]);
 
   const { isError, isSuccess, message } = useSelector(
-    (state) => state.academic
+    (state) => state.clearance
   );
   const handleRemoveAcademic = (value, identifier) => {
     const newclearancName = clearanceNames.map((clearanceName) =>

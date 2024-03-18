@@ -2,14 +2,14 @@ import { MdClose } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { createClearanceType } from "../../features/academicType/academicSlice";
+import { createClearanceType } from "../../features/academicType/clearanceSlice";
 import "./styles/academictype.css";
 const AcademicTypes = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
-  const { isError, isSuccess } = useSelector((state) => state.academic);
+  const { isError, isSuccess } = useSelector((state) => state.clearance);
   useEffect(() => {
     if (isSuccess) {
       setStepNumber((prevNumber) => prevNumber + 1);

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import academicService from "./academicService";
+import academicService from "./clearanceService";
 
 const initialState = {
   isError: false,

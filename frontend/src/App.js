@@ -5,10 +5,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Steps from "./components/items/steps";
 import Spinner from "./components/items/utilities/Spinner";
-import AcademicTypes from "./components/items/academicTypes";
+import AcademicTypes from "./components/items/clearanceTypes";
 import AddClearance from "./components/items/addClearance";
 function App() {
-  const { isLoading } = useSelector((state) => state.academic);
+  const { isLoading } = useSelector((state) => state.clearance);
   const [stepNumber, setStepNumber] = useState(1);
 
   return (
