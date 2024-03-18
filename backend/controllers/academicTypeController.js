@@ -1,8 +1,8 @@
-const AcademicType = require("../models/academicTypeModel");
+const Clearance = require("../models/academicTypeModel");
 const asyncHandler = require("express-async-handler");
 
 //This is a function to create/register academic type
-const createAcademicType = asyncHandler(async (req, res) => {
+const createClearanceType = asyncHandler(async (req, res) => {
   // It takes request from the frontend (req)
   let result;
   const AcademicTypes = req.body;
@@ -10,7 +10,7 @@ const createAcademicType = asyncHandler(async (req, res) => {
   const newPromise = new Promise((resolve, reject) => {
     AcademicTypes &&
       AcademicTypes.map(async (academicType) => {
-        result = await AcademicType.create({
+        result = await Clearance.create({
           AcademicName: academicType,
         });
         resolve(result);
@@ -24,9 +24,9 @@ const createAcademicType = asyncHandler(async (req, res) => {
       res.status(400).json("Your request was not successful", error);
     });
 });
-//This is a function to get all academic types
-const getAcademicType = asyncHandler(async (req, res) => {
-  const result = await AcademicType.find();
+//This is a function to get all Clearance types
+const getClearanceType = asyncHandler(async (req, res) => {
+  const result = await Clearance.find();
   if (result.length) {
     res.status(200).json(result); // This give resposne to the frontend
   } else {
@@ -35,6 +35,6 @@ const getAcademicType = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  createAcademicType,
-  getAcademicType,
+  createClearanceType,
+  getClearanceType,
 };
