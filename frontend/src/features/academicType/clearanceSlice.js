@@ -4,6 +4,7 @@ import academicService from "./clearanceService";
 const initialState = {
   isError: false,
   isSuccess: false,
+  isSuccessUpdateClearance: false,
   isLoading: false,
   message: "",
 };
@@ -102,6 +103,7 @@ export const academicSlice = createSlice({
       .addCase(updateClearance.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.isSuccessUpdateClearance = true;
         state.message = action.payload;
       })
       .addCase(updateClearance.rejected, (state) => {
