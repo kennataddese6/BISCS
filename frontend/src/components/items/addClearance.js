@@ -85,7 +85,9 @@ const AddClearance = () => {
     setClearanceNames(newClearanceNames);
   };
   const handleAddingCustomClearanceTyes = (target) => {
-    console.log(customClearanceTypes, target);
+    if (!customClearanceTypes) {
+      return;
+    }
     let duplicateValue;
     for (let i = 0; i < clearanceItems.length; i++) {
       duplicateValue =
@@ -110,9 +112,9 @@ const AddClearance = () => {
           }
         : clearanceItem
     );
-    console.log(newClearanceItems);
-    toast.success(`${customClearanceTypes} added!`);
     setClearanceItems(newClearanceItems);
+    toast.success(`${customClearanceTypes} added!`);
+    setCustomClearanceTypes();
   };
   useEffect(() => {
     dispatch(getAcademicTypes());
