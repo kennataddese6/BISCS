@@ -1,4 +1,4 @@
-const Clearance = require("../models/academicTypeModel");
+const Clearance = require("../models/clearanceModel");
 const asyncHandler = require("express-async-handler");
 
 //This is a function to create/register academic type
