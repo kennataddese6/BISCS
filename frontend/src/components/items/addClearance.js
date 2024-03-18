@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAcademicTypes } from '../../features/academicType/academicSlice';
-import './styles/addclearance.css';
-import { useState } from 'react';
-import { MdClose } from 'react-icons/md';
-import { toast } from 'react-toastify';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAcademicTypes } from "../../features/academicType/academicSlice";
+import "./styles/addclearance.css";
+import { useState } from "react";
+import { MdClose } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const AddClearance = () => {
   const dispatch = useDispatch();
@@ -12,46 +12,48 @@ const AddClearance = () => {
   const [customClearanceTypes, setCustomClearanceTypes] = useState();
   const [clearanceItems, setClearanceItems] = useState([
     {
-      clearanceItemFor: 'Regular',
+      clearanceItemFor: "Regular",
       clearanceItem: [
-        'Department',
-        'Book Store Keeper',
-        'Librarian',
-        'Food Service',
-        'Housing',
-        'StoreKeeper',
-        'University Police',
-        'Registrar Office',
+        "Department",
+        "Book Store Keeper",
+        "Librarian",
+        "Food Service",
+        "Housing",
+        "StoreKeeper",
+        "University Police",
+        "Registrar Office",
       ],
     },
     {
-      clearanceItemFor: 'Extension',
+      clearanceItemFor: "Extension",
       clearanceItem: [
-        'Department',
-        'CDE Office',
-        'CBE coordinator',
-        'Librarian',
-        'Book Store keeper',
-        'Head,Budget & Finance',
-        'University Police',
-        'Registerar Office',
+        "Department",
+        "CDE Office",
+        "CBE coordinator",
+        "Librarian",
+        "Book Store keeper",
+        "Head,Budget & Finance",
+        "University Police",
+        "Registerar Office",
       ],
     },
     {
-      clearanceItemFor: 'Weekend',
-      clearanceItem: ['Dorm', 'Cafe'],
+      clearanceItemFor: "Weekend",
+      clearanceItem: ["Dorm", "Cafe"],
     },
   ]);
 
-  const { isError, isSuccess, message } = useSelector(state => state.academic);
+  const { isError, isSuccess, message } = useSelector(
+    (state) => state.academic
+  );
   const handleRemoveAcademic = (value, identifier) => {
-    const newclearancName = clearanceNames.map(clearanceName =>
+    const newclearancName = clearanceNames.map((clearanceName) =>
       clearanceName.clearancefor === identifier
         ? {
             ...clearanceName,
-            clearance: clearanceName.clearance.filter(a => a !== value),
+            clearance: clearanceName.clearance.filter((a) => a !== value),
           }
-        : clearanceName,
+        : clearanceName
     );
     setClearanceNames(newclearancName);
   };
@@ -63,7 +65,7 @@ const AddClearance = () => {
     for (let i = 0; i < clearanceNames.length; i++) {
       duplicateValue =
         clearanceNames[i].clearancefor === target &&
-        clearanceNames[i].clearance.find(a => a === clearanceName);
+        clearanceNames[i].clearance.find((a) => a === clearanceName);
       if (duplicateValue) {
         toast.error(`${duplicateValue} already added!`);
         break;
@@ -72,18 +74,31 @@ const AddClearance = () => {
     if (duplicateValue) {
       return;
     }
-    const newClearanceNames = clearanceNames.map(oneClearance =>
+    const newClearanceNames = clearanceNames.map((oneClearance) =>
       oneClearance.clearancefor === target
         ? {
             ...oneClearance,
             clearance: [...oneClearance.clearance, clearanceName],
           }
-        : oneClearance,
+        : oneClearance
     );
     setClearanceNames(newClearanceNames);
   };
-  const handleAddingCustomClearanceTyes = target => {
+  const handleAddingCustomClearanceTyes = (target) => {
     console.log(customClearanceTypes, target);
+    const newClearanceItems = clearanceItems.map((clearanceItem) =>
+      clearanceItem.clearanceItemFor === target
+        ? {
+            clearanceItemFor: clearanceItem.clearanceItemFor,
+            clearanceItem: [
+              ...clearanceItem.clearanceItem,
+              customClearanceTypes,
+            ],
+          }
+        : clearanceItem
+    );
+    console.log(newClearanceItems);
+    setClearanceItems(newClearanceItems);
   };
   useEffect(() => {
     dispatch(getAcademicTypes());
@@ -92,9 +107,9 @@ const AddClearance = () => {
     if (isSuccess) {
       const initialClearance =
         message &&
-        message.map(acadamicNames => {
+        message.map((acadamicNames) => {
           const data = {
-            clearance: ['Dormitory', 'Cafe'],
+            clearance: ["Dormitory", "Cafe"],
             clearancefor: acadamicNames.AcademicName,
           };
           return data;
@@ -114,7 +129,7 @@ const AddClearance = () => {
               </h3>
               <div className="clearancetypesContainer">
                 {clearanceNames &&
-                  clearanceNames.map(clearanceName => (
+                  clearanceNames.map((clearanceName) => (
                     <>
                       {clearanceName.clearancefor === AcademicNames.AcademicName
                         ? clearanceName.clearance.map((oneClearance, index) => (
@@ -130,7 +145,7 @@ const AddClearance = () => {
                                 onClick={() => {
                                   handleRemoveAcademic(
                                     oneClearance,
-                                    clearanceName.clearancefor,
+                                    clearanceName.clearancefor
                                   );
                                 }}
                               >
@@ -138,28 +153,28 @@ const AddClearance = () => {
                               </div>
                             </div>
                           ))
-                        : ''}
+                        : ""}
                     </>
                   ))}
               </div>
               <select
                 className="clearancetypesDropDown"
-                onChange={e => {
+                onChange={(e) => {
                   handleDropDownChange(
                     e.target.value,
-                    AcademicNames.AcademicName,
+                    AcademicNames.AcademicName
                   );
                 }}
               >
                 <option value=""> Choose an Clearance type </option>
-                {clearanceItems.map(oneClearanceItem => (
+                {clearanceItems.map((oneClearanceItem) => (
                   <>
                     {oneClearanceItem.clearanceItemFor ===
                     AcademicNames.AcademicName
-                      ? oneClearanceItem.clearanceItem.map(clearanceName => (
+                      ? oneClearanceItem.clearanceItem.map((clearanceName) => (
                           <option> {clearanceName}</option>
                         ))
-                      : ''}
+                      : ""}
                   </>
                 ))}
               </select>
@@ -168,7 +183,7 @@ const AddClearance = () => {
                 name="customInput"
                 placeholder="Custom clearance type"
                 className="customClearanceInput"
-                onChange={e => {
+                onChange={(e) => {
                   setCustomClearanceTypes(e.target.value);
                 }}
               />
