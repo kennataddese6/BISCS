@@ -1,10 +1,53 @@
 const mongoose = require("mongoose"); //This is used to define the database schema
 
-const academicTypeSchema = mongoose.Schema({   //We are defining a schema for adademic type
-  AcademicName: {                               // We are adding an attribute academic name which is string
+const ClearanceDetail = new mongoose.Schema({
+  ClearanceFieldName: {
     type: String,
-    require: [true, "Please add an Academic name"],
+  },
+  ClearanceOrder: {
+    type: String,
+  },
+  Approved: {
+    type: Boolean,
+    default: false,
+  },
+  PreRequest: {
+    type: Boolean,
+    default: false,
+  },
+  PreRequestName: {
+    type: String,
   },
 });
 
-module.exports = mongoose.model("AcademicType",academicTypeSchema)
+const ClearanceSchema = mongoose.Schema({
+  //We are defining a schema for adademic type
+  AcademicName: {
+    type: String,
+  },
+  ClearanceName: {
+    type: String,
+  },
+  StudentId: {
+    type: String,
+  },
+  AdminId: {
+    type: String,
+  },
+  Complete: {
+    type: Boolean,
+    default: false,
+  },
+  Started: {
+    type: Boolean,
+    default: false,
+  },
+  Deadline: {
+    type: Date,
+  },
+  ClearanceDetail: {
+    type: ClearanceDetail,
+  },
+});
+
+module.exports = mongoose.model("Clearance", ClearanceSchema);
