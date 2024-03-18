@@ -34,7 +34,44 @@ const getClearanceType = asyncHandler(async (req, res) => {
   }
 });
 const updateClearance = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  const clearanceUpdates = req.body; // Assuming req.body is the array you provided
+
+  try {
+    for (const clearanceUpdate of clearanceUpdates) {
+      const { clearanceItemFor, clearanceItem } = clearanceUpdate;
+
+      // Find the Clearance document by its AcademicName
+      let clearance = await Clearance.findOne({
+        AcademicName: clearanceItemFor,
+      });
+
+      if (!clearance) {
+        console.log(`Clearance for ${clearanceItemFor} not found.`);
+        continue; // Move to the next clearance update
+      }
+
+      // Create a new ClearanceDetail object
+      const clearanceDetails = clearanceItem.map((item) => ({
+        ClearanceFieldName: item,
+        ClearanceOrder: "",
+        Approved: false,
+        PreRequest: false,
+        PreRequestName: "",
+        StudentAppeal: false,
+      }));
+
+      // Update the ClearanceDetail field with the new data
+      clearance.ClearanceDetail = clearanceDetails;
+
+      // Save the updated document
+      await clearance.save();
+    }
+    const allClearance = await Clearance.find();
+    res.status(200).json(allClearance);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
 });
 module.exports = {
   createClearanceType,
