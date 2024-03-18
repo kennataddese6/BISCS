@@ -38,20 +38,20 @@ const updateClearance = asyncHandler(async (req, res) => {
 
   try {
     for (const clearanceUpdate of clearanceUpdates) {
-      const { clearanceItemFor, clearanceItem } = clearanceUpdate;
+      const { clearancefor, clearance } = clearanceUpdate;
 
       // Find the Clearance document by its AcademicName
-      let clearance = await Clearance.findOne({
-        AcademicName: clearanceItemFor,
+      let ClearanceData = await Clearance.findOne({
+        AcademicName: clearancefor,
       });
 
-      if (!clearance) {
-        console.log(`Clearance for ${clearanceItemFor} not found.`);
-        continue; // Move to the next clearance update
+      if (!ClearanceData) {
+        console.log(`Clearance for ${clearancefor} not found.`);
+        continue; // Move to the next Clearance update
       }
 
       // Create a new ClearanceDetail object
-      const clearanceDetails = clearanceItem.map((item) => ({
+      const clearanceDetails = clearance.map((item) => ({
         ClearanceFieldName: item,
         ClearanceOrder: "",
         Approved: false,
@@ -61,10 +61,10 @@ const updateClearance = asyncHandler(async (req, res) => {
       }));
 
       // Update the ClearanceDetail field with the new data
-      clearance.ClearanceDetail = clearanceDetails;
+      ClearanceData.ClearanceDetail = clearanceDetails;
 
       // Save the updated document
-      await clearance.save();
+      await ClearanceData.save();
     }
     const allClearance = await Clearance.find();
     res.status(200).json(allClearance);

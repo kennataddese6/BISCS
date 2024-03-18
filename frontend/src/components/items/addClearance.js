@@ -120,7 +120,7 @@ const AddClearance = ({ setStepNumber }) => {
     setCustomClearanceTypes();
   };
   const handleAddClearance = () => {
-    dispatch(updateClearance(clearanceItems));
+    dispatch(updateClearance(clearanceNames));
   };
   useEffect(() => {
     dispatch(getClearanceTypes());
@@ -152,7 +152,7 @@ const AddClearance = ({ setStepNumber }) => {
       setClearanceNames(initialClearance);
       setClearanceItems(initialClearanceTypes);
     }
-  }, [isSuccess, isError, message, isSuccessUpdateClearance,setStepNumber]);
+  }, [isSuccess, isError, message, isSuccessUpdateClearance, setStepNumber]);
 
   return (
     <>
