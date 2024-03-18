@@ -86,6 +86,19 @@ const AddClearance = () => {
   };
   const handleAddingCustomClearanceTyes = (target) => {
     console.log(customClearanceTypes, target);
+    let duplicateValue;
+    for (let i = 0; i < clearanceItems.length; i++) {
+      duplicateValue =
+        clearanceItems[i].clearanceItemFor === target &&
+        clearanceItems[i].clearanceItem.find((a) => a === customClearanceTypes);
+      if (duplicateValue) {
+        toast.error(`${duplicateValue} already added!`);
+        break;
+      }
+    }
+    if (duplicateValue) {
+      return;
+    }
     const newClearanceItems = clearanceItems.map((clearanceItem) =>
       clearanceItem.clearanceItemFor === target
         ? {
