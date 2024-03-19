@@ -6,23 +6,37 @@ const DefineRules = () => {
   const dispatch = useDispatch();
   const { message, isSuccess } = useSelector((state) => state.clearance);
   const [Divs, setDivs] = useState(["A", "B", "C", "D"]);
+  const [Clearances, setClearances] = useState([]);
   const handleDragStart = (index) => (event) => {
     event.dataTransfer.setData("index", index);
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = (event, target) => {
     const draggedDiv = event.dataTransfer.getData("index");
     const droppedDiv = event.target.getAttribute("data-index");
     if (draggedDiv !== droppedDiv) {
-      const newDiv = [...Divs];
-      newDiv.splice(draggedDiv, 1);
-      newDiv.splice(droppedDiv, 0, Divs[draggedDiv]);
-      setDivs(newDiv);
+      console.log(draggedDiv, droppedDiv, Clearances, target);
+      let newClearances = Clearances.map((clearance) => {
+        if (clearance.AcademicName === target) {
+          let newClearanceDetail = [...clearance.ClearanceDetail];
+          newClearanceDetail.splice(draggedDiv, 1);
+          newClearanceDetail.splice(
+            droppedDiv,
+            0,
+            clearance.ClearanceDetail[draggedDiv]
+          );
+          return { ...clearance, ClearanceDetail: newClearanceDetail };
+        } else {
+          return clearance;
+        }
+      });
+      setClearances(newClearances);
     }
   };
+
   useEffect(() => {
     if (isSuccess) {
-      console.log(message);
+      setClearances(message);
     }
   }, [isSuccess, message]);
   useEffect(() => {
@@ -32,26 +46,28 @@ const DefineRules = () => {
     <>
       {" "}
       <div className="addClearanceContainer">
-        {message &&
-          message.map((AcademicNames, index) => (
-            <div className="clearance col-l-4 ">
+        {Clearances &&
+          Clearances.map((AcademicNames, index) => (
+            <div className="clearance col-l-4 " key={index}>
               <h3 className="addClearanceHeaderText">
                 Define for {AcademicNames.AcademicName} clearance
               </h3>
               <label className="reorderclearance"> Reorder Clearance</label>
               <div className="clearancetypesContainer">
-                {Divs.map((content, index) => (
+                {AcademicNames.ClearanceDetail.map((content, index) => (
                   <div
-                    className="academicType draggable col-s-3"
+                    className="clearanceType draggable col-s-4 col-l-5 col-xl-3"
                     key={index}
                     data-index={index}
                     draggable={true}
                     onDragStart={handleDragStart(index)}
                     onDragOver={(e) => e.preventDefault()}
-                    onDrop={handleDrop}
+                    onDrop={(event) =>
+                      handleDrop(event, AcademicNames.AcademicName)
+                    }
                   >
                     {" "}
-                    {content}{" "}
+                    {content.ClearanceFieldName}{" "}
                   </div>
                 ))}
               </div>
