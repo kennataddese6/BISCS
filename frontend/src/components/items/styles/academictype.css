@@ -77,10 +77,29 @@ select {
 .nextStepButton {
   margin-bottom: 16px;
   padding: 20px 44px;
-  background-color: rgb(151, 81, 216);
+  background: linear-gradient(to right, blueviolet 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
   border: none;
   color: white;
   cursor: pointer;
+}
+.nextStepButton:hover {
+  animation: poundingEffect 1s ease-in 0s 1 forwards;
+}
+@keyframes poundingEffect {
+  0% {
+    background-position: 100% bottom;
+  }
+  33.33% {
+    background-position: 0% bottom;
+  }
+  66.66% {
+    background-position: 15% bottom;
+  }
+  100% {
+    background-position: 0% bottom;
+  }
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {
