@@ -80,6 +80,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
           onChange={(e) => {
             handleDropDownChange(e.target.value);
           }}
+          style={{ backgroundColor: "white" }}
         >
           <option value=""> Choose an academic type </option>
           {academicTypes.map((academicType, index) => (
@@ -95,6 +96,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
           placeholder="Custom academic type"
           className="academictypesContainer customAcademicTypeInput"
           value={customAcademic}
+          style={{ backgroundColor: "white" }}
           onChange={(e) => {
             setCustomAcademic(e.target.value);
           }}
