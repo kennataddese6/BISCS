@@ -1,0 +1,7 @@
+.draggable {
+  cursor: move;
+  color: white;
+}
+.reorderclearance {
+  margin: 6px;
+}
