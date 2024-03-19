@@ -31,6 +31,9 @@
   border-radius: 12px;
   margin: 8px;
   cursor: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .clearanceType:hover {
   background-color: rgb(93, 31, 151);
