@@ -2,20 +2,26 @@ import { useState, useEffect } from "react";
 import "./styles/definerules.css";
 import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 const DefineRules = () => {
   const dispatch = useDispatch();
   const { message, isSuccess } = useSelector((state) => state.clearance);
-  const [Divs, setDivs] = useState(["A", "B", "C", "D"]);
   const [Clearances, setClearances] = useState([]);
-  const handleDragStart = (index) => (event) => {
+  const [draggedFrom, setDraggedFrom] = useState("");
+  const handleDragStart = (index, takenFrom) => (event) => {
     event.dataTransfer.setData("index", index);
+    setDraggedFrom(takenFrom);
   };
 
   const handleDrop = (event, target) => {
+    if (target !== draggedFrom) {
+      toast.error("Can't perform action!");
+      return;
+    }
     const draggedDiv = event.dataTransfer.getData("index");
     const droppedDiv = event.target.getAttribute("data-index");
     if (draggedDiv !== droppedDiv) {
-      console.log(draggedDiv, droppedDiv, Clearances, target);
       let newClearances = Clearances.map((clearance) => {
         if (clearance.AcademicName === target) {
           let newClearanceDetail = [...clearance.ClearanceDetail];
@@ -60,7 +66,10 @@ const DefineRules = () => {
                     key={index}
                     data-index={index}
                     draggable={true}
-                    onDragStart={handleDragStart(index)}
+                    onDragStart={handleDragStart(
+                      index,
+                      AcademicNames.AcademicName
+                    )}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={(event) =>
                       handleDrop(event, AcademicNames.AcademicName)
