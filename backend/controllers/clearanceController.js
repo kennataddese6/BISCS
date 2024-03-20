@@ -34,7 +34,7 @@ const getClearanceType = asyncHandler(async (req, res) => {
   }
 });
 const updateClearance = asyncHandler(async (req, res) => {
-  const clearanceUpdates = req.body; // Assuming req.body is the array you provided
+  const clearanceUpdates = req.body;
 
   try {
     for (const clearanceUpdate of clearanceUpdates) {
@@ -73,8 +73,12 @@ const updateClearance = asyncHandler(async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 });
+const defineClearance = asyncHandler(async (req, res) => {
+  console.log(req.body);
+});
 module.exports = {
   createClearanceType,
   getClearanceType,
   updateClearance,
+  defineClearance,
 };
