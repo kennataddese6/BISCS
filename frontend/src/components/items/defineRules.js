@@ -39,7 +39,46 @@ const DefineRules = () => {
       setClearances(newClearances);
     }
   };
-
+  const handlePreRequest = (clearanceTarget, clearanceDetailTarget, value) => {
+    console.log(
+      "Hello I am in here",
+      clearanceTarget,
+      clearanceDetailTarget,
+      value
+    );
+    console.log(Clearances);
+    const newClearances = Clearances.map((clearance) => {
+      if (clearance.AcademicName === clearanceTarget) {
+        const newClearanceDetail = clearance.ClearanceDetail.map((detail) => {
+          if (detail.ClearanceFieldName === clearanceDetailTarget) {
+            const newDetail = {
+              ClearanceFieldName: detail.ClearanceFieldName,
+              ClearanceOrder: detail.ClearanceOrder,
+              Approved: detail.Approved,
+              PreRequest: value,
+              PreRequestName: detail.PreRequestName,
+              StudentAppeal: detail.StudentAppeal,
+              _id: detail._id,
+            };
+            return newDetail;
+          } else {
+            return detail;
+          }
+        });
+        const Clearance = {
+          _id: clearance._id,
+          AcademicName: clearance.AcademicName,
+          ClearanceDetail: newClearanceDetail,
+          Completed: clearance.Completed,
+          Started: clearance.Started,
+        };
+        return Clearance;
+      } else {
+        return clearance;
+      }
+    });
+    setClearances(newClearances);
+  };
   useEffect(() => {
     if (isSuccess) {
       setClearances(message);
@@ -92,7 +131,17 @@ const DefineRules = () => {
                     <div className="clearanceFieldNamePreRequest">
                       <label>{content.ClearanceFieldName}</label>
                     </div>
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={content.PreRequest}
+                      onChange={(e) => {
+                        handlePreRequest(
+                          AcademicNames.AcademicName,
+                          content.ClearanceFieldName,
+                          e.target.checked
+                        );
+                      }}
+                    />
                     <input type="checkbox" className="appealCheckBox" />
                   </div>
                 ))}
