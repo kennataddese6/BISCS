@@ -3,7 +3,7 @@ import "./styles/definerules.css";
 import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-
+import { defineClearance } from "../../features/academicType/clearanceSlice";
 const DefineRules = () => {
   const dispatch = useDispatch();
   const { message, isSuccess } = useSelector((state) => state.clearance);
@@ -87,6 +87,9 @@ const DefineRules = () => {
       }
     });
     setClearances(newClearances);
+  };
+  const handleSubmit = () => {
+    dispatch(defineClearance(Clearances));
   };
   useEffect(() => {
     if (isSuccess) {
@@ -173,7 +176,15 @@ const DefineRules = () => {
         <div className="nextButtonContainer"></div>
       </div>
       <div className="nextButtonContainer">
-        <button className="nextStepButton"> Next </button>
+        <button
+          className="nextStepButton"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {" "}
+          Next{" "}
+        </button>
       </div>
     </>
   );

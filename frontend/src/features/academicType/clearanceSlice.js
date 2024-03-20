@@ -60,6 +60,23 @@ export const updateClearance = createAsyncThunk(
     }
   }
 );
+// Get define Clearance types
+export const defineClearance = createAsyncThunk(
+  "academic/defineClearance",
+  async (data, thunkAPI) => {
+    try {
+      return await academicService.defineClearance(data);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const academicSlice = createSlice({
   name: "academic",
@@ -107,6 +124,19 @@ export const academicSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(updateClearance.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addCase(defineClearance.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(defineClearance.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isSuccessUpdateClearance = true;
+        state.message = action.payload;
+      })
+      .addCase(defineClearance.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });

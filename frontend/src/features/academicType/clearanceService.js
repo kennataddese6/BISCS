@@ -13,11 +13,19 @@ const updateClearance = async (data) => {
   const response = await axios.put(API_URL + "clearanceType", data);
   return response.data;
 };
+const defineClearance = async (data) => {
+  const response = await axios.put(
+    API_URL + "clearanceType/defineClearance",
+    data
+  );
+  return response.data;
+};
 
 const academicService = {
   createClearanceType,
   getClearanceTypes,
   updateClearance,
+  defineClearance,
 };
 
 export default academicService;
