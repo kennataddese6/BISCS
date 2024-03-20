@@ -5,3 +5,24 @@
 .reorderclearance {
   margin: 6px;
 }
+.PreRequestContainer {
+  height: auto;
+  background-color: black;
+  margin: 16px 6px;
+  padding: 4px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+}
+.preRequests {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 4px;
+}
+.appealCheckBox {
+  margin-right: 12px;
+}
+.pre-requestHeaderText {
+  margin-right: 28px;
+}
