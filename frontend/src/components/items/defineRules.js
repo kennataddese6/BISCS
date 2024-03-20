@@ -39,27 +39,36 @@ const DefineRules = () => {
       setClearances(newClearances);
     }
   };
-  const handlePreRequest = (clearanceTarget, clearanceDetailTarget, value) => {
-    console.log(
-      "Hello I am in here",
-      clearanceTarget,
-      clearanceDetailTarget,
-      value
-    );
-    console.log(Clearances);
+  const handlePreRequest = (
+    clearanceTarget,
+    clearanceDetailTarget,
+    value,
+    appeal
+  ) => {
     const newClearances = Clearances.map((clearance) => {
       if (clearance.AcademicName === clearanceTarget) {
         const newClearanceDetail = clearance.ClearanceDetail.map((detail) => {
           if (detail.ClearanceFieldName === clearanceDetailTarget) {
-            const newDetail = {
-              ClearanceFieldName: detail.ClearanceFieldName,
-              ClearanceOrder: detail.ClearanceOrder,
-              Approved: detail.Approved,
-              PreRequest: value,
-              PreRequestName: detail.PreRequestName,
-              StudentAppeal: detail.StudentAppeal,
-              _id: detail._id,
-            };
+            let newDetail;
+            appeal
+              ? (newDetail = {
+                  ClearanceFieldName: detail.ClearanceFieldName,
+                  ClearanceOrder: detail.ClearanceOrder,
+                  Approved: detail.Approved,
+                  PreRequest: detail.PreRequest,
+                  PreRequestName: detail.PreRequestName,
+                  StudentAppeal: value,
+                  _id: detail._id,
+                })
+              : (newDetail = {
+                  ClearanceFieldName: detail.ClearanceFieldName,
+                  ClearanceOrder: detail.ClearanceOrder,
+                  Approved: detail.Approved,
+                  PreRequest: value,
+                  PreRequestName: detail.PreRequestName,
+                  StudentAppeal: detail.StudentAppeal,
+                  _id: detail._id,
+                });
             return newDetail;
           } else {
             return detail;
@@ -138,11 +147,24 @@ const DefineRules = () => {
                         handlePreRequest(
                           AcademicNames.AcademicName,
                           content.ClearanceFieldName,
-                          e.target.checked
+                          e.target.checked,
+                          0
                         );
                       }}
                     />
-                    <input type="checkbox" className="appealCheckBox" />
+                    <input
+                      type="checkbox"
+                      checked={content.StudentAppeal}
+                      className="appealCheckBox"
+                      onChange={(e) => {
+                        handlePreRequest(
+                          AcademicNames.AcademicName,
+                          content.ClearanceFieldName,
+                          e.target.checked,
+                          1
+                        );
+                      }}
+                    />
                   </div>
                 ))}
               </div>
