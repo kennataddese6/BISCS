@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer theme="dark" />
       {isLoading && <Spinner />}
 
       <div className="mainContainer">
