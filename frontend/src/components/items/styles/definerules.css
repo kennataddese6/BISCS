@@ -23,6 +23,7 @@
 .appealCheckBox {
   margin-right: 12px;
 }
-.pre-requestHeaderText {
-  margin-right: 28px;
+.clearanceFieldNamePreRequest {
+  width: 110px;
+  white-space: nowrap;
 }
