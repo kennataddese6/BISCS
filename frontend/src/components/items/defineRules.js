@@ -58,7 +58,7 @@ const DefineRules = () => {
               <h3 className="addClearanceHeaderText">
                 Define for {AcademicNames.AcademicName} clearance
               </h3>
-              <label className="reorderclearance"> Reorder Clearance</label>
+              <label className="reorderclearance"> Re-order Clearance</label>
               <div className="clearancetypesContainer">
                 {AcademicNames.ClearanceDetail.map((content, index) => (
                   <div
@@ -79,6 +79,24 @@ const DefineRules = () => {
                     {content.ClearanceFieldName}{" "}
                   </div>
                 ))}
+              </div>
+              <label className="reorderclearance"> Pre-Request</label>
+              <div className="PreRequestContainer">
+                <div className="preRequests">
+                  <label>Clearance</label>
+                  <label className="pre-requestHeaderText"> Pre-request</label>
+                  <label className="appealCheckBox"> Appeal</label>
+                </div>
+                <div className="preRequests">
+                  <label> Dormitory</label>
+                  <input type="checkbox" />
+                  <input type="checkbox" className="appealCheckBox" />
+                </div>
+                <div className="preRequests">
+                  <label> Dormitory</label>
+                  <input type="checkbox" />
+                  <input type="checkbox" className="appealCheckBox" />
+                </div>
               </div>
             </div>
           ))}
