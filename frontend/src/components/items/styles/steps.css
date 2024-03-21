@@ -30,12 +30,12 @@
 .stepLine {
   width: 40%;
   height: 3px;
-  background: linear-gradient(to right, blueviolet 50%, grey 50%);
+  background: linear-gradient(to right, dodgerblue 50%, grey 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   align-self: center;
   animation: LineFlow 8s ease-in-out 0s 1 forwards;
-  box-shadow: 0 0 8px blueviolet;
+  box-shadow: 0 0 8px dodgerblue;
 }
 @keyframes LineFlow {
   0% {
