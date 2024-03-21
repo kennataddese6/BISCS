@@ -86,6 +86,7 @@ export const academicSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = false;
+      state.message = "";
     },
   },
   extraReducers: (builder) => {
@@ -98,9 +99,10 @@ export const academicSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
       })
-      .addCase(createClearanceType.rejected, (state) => {
+      .addCase(createClearanceType.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        state.message = action.payload;
       })
       .addCase(getClearanceTypes.pending, (state) => {
         state.isLoading = true;
