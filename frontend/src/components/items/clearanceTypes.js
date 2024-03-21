@@ -2,7 +2,10 @@ import { MdClose } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { createClearanceType } from "../../features/academicType/clearanceSlice";
+import {
+  createClearanceType,
+  getClearanceTypes,
+} from "../../features/academicType/clearanceSlice";
 import "./styles/academictype.css";
 import { reset } from "../../features/academicType/clearanceSlice";
 const ClearanceTypes = ({ setStepNumber }) => {
@@ -15,11 +18,19 @@ const ClearanceTypes = ({ setStepNumber }) => {
   );
   const [selectedValue, setSelectedValue] = useState("");
   useEffect(() => {
+    if (Array.isArray(message)) {
+      setStepNumber((prev) => prev + 1);
+      return;
+    }
     if (isSuccess) {
       setStepNumber((prevNumber) => prevNumber + 1);
     }
     if (isError) {
-      toast.error(message);
+      if (message) {
+        toast.error(message);
+      } else {
+        toast.error("No Clearance found");
+      }
     }
     dispatch(reset());
   }, [isError, isSuccess, setStepNumber, message, dispatch]);
@@ -65,7 +76,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
     dispatch(createClearanceType(academicNames));
   };
   const handleSkip = () => {
-    setStepNumber((prev) => prev + 1);
+    dispatch(getClearanceTypes());
   };
   return (
     <>
