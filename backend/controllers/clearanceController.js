@@ -3,27 +3,31 @@ const asyncHandler = require("express-async-handler");
 
 //This is a function to create/register academic type
 const createClearanceType = asyncHandler(async (req, res) => {
-  // It takes request from the frontend (req)
-  let result;
-  const AcademicTypes = req.body;
+  try {
+    const AcademicTypes = req.body;
 
-  const newPromise = new Promise((resolve, reject) => {
-    AcademicTypes &&
-      AcademicTypes.map(async (academicType) => {
-        result = await Clearance.create({
-          AcademicName: academicType,
-        });
-        resolve(result);
+    const promises = AcademicTypes.map(async (academicType) => {
+      const clearanceExist = await Clearance.findOne({
+        AcademicName: academicType,
       });
-  });
-  newPromise
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((error) => {
-      res.status(400).json("Your request was not successful", error);
+      if (clearanceExist) {
+        console.log("Here is the error", clearanceExist.AcademicName);
+        throw new Error(`${academicType} already exists.`);
+      }
+      return Clearance.create({ AcademicName: academicType });
     });
+
+    const results = await Promise.all(promises);
+    res.status(200).json(results);
+  } catch (error) {
+    console.log("Error thrown", error.message);
+    res.status(400).json({
+      message: error.message,
+      error: error.message,
+    });
+  }
 });
+
 //This is a function to get all Clearance types
 const getClearanceType = asyncHandler(async (req, res) => {
   const result = await Clearance.find();
