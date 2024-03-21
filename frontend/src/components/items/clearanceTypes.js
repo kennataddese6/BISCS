@@ -64,7 +64,9 @@ const ClearanceTypes = ({ setStepNumber }) => {
     }
     dispatch(createClearanceType(academicNames));
   };
-
+  const handleSkip = () => {
+    setStepNumber((prev) => prev + 1);
+  };
   return (
     <>
       <div className="academicContainer">
@@ -129,6 +131,16 @@ const ClearanceTypes = ({ setStepNumber }) => {
         >
           {" "}
           Next{" "}
+        </button>
+        <button
+          className="nextStepButton"
+          onClick={() => {
+            handleSkip();
+          }}
+          style={{ marginLeft: "2px" }}
+        >
+          {" "}
+          Skip{" "}
         </button>
       </div>
     </>
