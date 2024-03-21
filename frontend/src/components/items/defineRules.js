@@ -6,7 +6,9 @@ import { toast } from "react-toastify";
 import { defineClearance } from "../../features/academicType/clearanceSlice";
 const DefineRules = () => {
   const dispatch = useDispatch();
-  const { message, isSuccess } = useSelector((state) => state.clearance);
+  const { message, isSuccess, isSuccessUpdateClearance } = useSelector(
+    (state) => state.clearance
+  );
   const [Clearances, setClearances] = useState([]);
   const [draggedFrom, setDraggedFrom] = useState("");
   const handleDragStart = (index, takenFrom) => (event) => {
@@ -95,7 +97,10 @@ const DefineRules = () => {
     if (isSuccess) {
       setClearances(message);
     }
-  }, [isSuccess, message]);
+    if (isSuccessUpdateClearance) {
+      console.log("clearance Updated succesfully");
+    }
+  }, [isSuccess, message, isSuccessUpdateClearance]);
   useEffect(() => {
     dispatch(getClearanceTypes());
   }, [dispatch]);

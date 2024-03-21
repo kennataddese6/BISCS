@@ -136,7 +136,6 @@ export const academicSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isSuccessUpdateClearance = true;
-        state.message = action.payload;
       })
       .addCase(defineClearance.rejected, (state) => {
         state.isLoading = false;
