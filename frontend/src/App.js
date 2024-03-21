@@ -8,6 +8,7 @@ import Spinner from "./components/items/utilities/Spinner";
 import ClearanceTypes from "./components/items/clearanceTypes";
 import AddClearance from "./components/items/addClearance";
 import DefineRules from "./components/items/defineRules";
+import ClearancePreview from "./components/clearancePreview";
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
   const [stepNumber, setStepNumber] = useState(3);
@@ -21,7 +22,8 @@ function App() {
         <Steps stepNumber={stepNumber} />
         {stepNumber === 1 && <ClearanceTypes setStepNumber={setStepNumber} />}
         {stepNumber === 2 && <AddClearance setStepNumber={setStepNumber} />}
-        {stepNumber === 3 && <DefineRules />}
+        {stepNumber === 3 && <DefineRules setStepNumber={setStepNumber} />}
+        {stepNumber === 4 && <ClearancePreview />}
       </div>
     </>
   );
