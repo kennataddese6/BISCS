@@ -6,7 +6,8 @@ const createClearanceType = asyncHandler(async (req, res) => {
   try {
     const AcademicTypes = req.body;
 
-    const promises = AcademicTypes.map(async (academicType) => {
+    // First, check all items for duplicates
+    for (const academicType of AcademicTypes) {
       const clearanceExist = await Clearance.findOne({
         AcademicName: academicType,
       });
@@ -14,10 +15,14 @@ const createClearanceType = asyncHandler(async (req, res) => {
         console.log("Here is the error", clearanceExist.AcademicName);
         throw new Error(`${academicType} already exists.`);
       }
-      return Clearance.create({ AcademicName: academicType });
-    });
+    }
 
+    // If no duplicates are found, register all items
+    const promises = AcademicTypes.map((academicType) =>
+      Clearance.create({ AcademicName: academicType })
+    );
     const results = await Promise.all(promises);
+
     res.status(200).json(results);
   } catch (error) {
     console.log("Error thrown", error.message);
