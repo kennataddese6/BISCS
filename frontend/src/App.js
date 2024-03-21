@@ -11,7 +11,7 @@ import DefineRules from "./components/items/defineRules";
 import ClearancePreview from "./components/clearancePreview";
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
-  const [stepNumber, setStepNumber] = useState(3);
+  const [stepNumber, setStepNumber] = useState(1);
 
   return (
     <>
