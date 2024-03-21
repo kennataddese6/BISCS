@@ -45,7 +45,10 @@ const Steps = ({ stepNumber }) => {
         {" "}
       </div>
       <div className="subStepContainer">
-        <div className="stepCircle inactiveStep"> 4 </div>
+        <div className={`stepCircle ${stepNumber < 4 && `inactiveStep`} `}>
+          {" "}
+          4{" "}
+        </div>
         <div className="stepText inactiveText"> Complete </div>
       </div>
     </div>
