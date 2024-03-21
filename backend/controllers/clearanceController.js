@@ -55,7 +55,6 @@ const updateClearance = asyncHandler(async (req, res) => {
       });
 
       if (!ClearanceData) {
-        console.log(`Clearance for ${clearancefor} not found.`);
         continue; // Move to the next Clearance update
       }
 
@@ -78,12 +77,43 @@ const updateClearance = asyncHandler(async (req, res) => {
     const allClearance = await Clearance.find();
     res.status(200).json(allClearance);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: "Server Error" });
   }
 });
 const defineClearance = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  const definedClearances = req.body;
+  try {
+    for (const definedClearance of definedClearances) {
+      let StoredClearance = await Clearance.findOne({
+        AcademicName: definedClearance.AcademicName,
+      });
+      if (!StoredClearance) {
+        console.log("Clearance not found");
+      }
+      const { ClearanceDetail } = definedClearance;
+      const newClearanceDetail = ClearanceDetail.map(
+        (oneClearanceDetail, index) => {
+          const constructedDetail = {
+            Approved: oneClearanceDetail.Approved,
+            ClearanceFieldName: oneClearanceDetail.ClearanceFieldName,
+            ClearanceOrder: index + 1,
+            PreRequest: oneClearanceDetail.PreRequest,
+            PreRequestName: oneClearanceDetail.PreRequest
+              ? ClearanceDetail[index - 1].ClearanceFieldName
+              : oneClearanceDetail.PreRequestName,
+            StudentAppeal: oneClearanceDetail.StudentAppeal,
+            _id: oneClearanceDetail._id,
+          };
+          return constructedDetail;
+        }
+      );
+      StoredClearance.ClearanceDetail = newClearanceDetail;
+      await StoredClearance.save();
+    }
+    res.status(200).json("Operation Successful");
+  } catch (error) {
+    res.status(400).json({ message: "Something is Wrong" });
+  }
 });
 module.exports = {
   createClearanceType,
