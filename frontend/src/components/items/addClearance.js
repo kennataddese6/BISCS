@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getClearanceTypes,
   updateClearance,
+  reset,
 } from "../../features/academicType/clearanceSlice";
 import "./styles/addclearance.css";
 import { useState } from "react";
@@ -129,6 +130,7 @@ const AddClearance = ({ setStepNumber }) => {
   }, [dispatch]);
   useEffect(() => {
     if (isSuccessUpdateClearance) {
+      dispatch(reset());
       setStepNumber((prevState) => prevState + 1);
     }
     if (isSuccess) {
@@ -154,7 +156,14 @@ const AddClearance = ({ setStepNumber }) => {
       setClearanceNames(initialClearance);
       setClearanceItems(initialClearanceTypes);
     }
-  }, [isSuccess, isError, message, isSuccessUpdateClearance, setStepNumber]);
+  }, [
+    isSuccess,
+    isError,
+    message,
+    isSuccessUpdateClearance,
+    setStepNumber,
+    dispatch,
+  ]);
 
   return (
     <>
