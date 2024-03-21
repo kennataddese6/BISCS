@@ -4,7 +4,7 @@ import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { defineClearance } from "../../features/academicType/clearanceSlice";
-const DefineRules = () => {
+const DefineRules = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const { message, isSuccess, isSuccessUpdateClearance } = useSelector(
     (state) => state.clearance
@@ -98,9 +98,9 @@ const DefineRules = () => {
       setClearances(message);
     }
     if (isSuccessUpdateClearance) {
-      console.log("clearance Updated succesfully");
+      setStepNumber((prev) => prev + 1);
     }
-  }, [isSuccess, message, isSuccessUpdateClearance]);
+  }, [isSuccess, message, isSuccessUpdateClearance, setStepNumber]);
   useEffect(() => {
     dispatch(getClearanceTypes());
   }, [dispatch]);
