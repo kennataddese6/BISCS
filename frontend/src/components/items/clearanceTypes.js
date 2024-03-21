@@ -10,6 +10,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
   const { isError, isSuccess } = useSelector((state) => state.clearance);
+  const [selectedValue, setSelectedValue] = useState("");
   useEffect(() => {
     if (isSuccess) {
       setStepNumber((prevNumber) => prevNumber + 1);
@@ -27,6 +28,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
       return;
     }
     setAcademicNames([...academicNames, value]);
+    setSelectedValue("");
   };
   const handleRemoveAcademic = (value) => {
     const newAcademicName = academicNames.filter((a) => a !== value);
@@ -77,6 +79,7 @@ const ClearanceTypes = ({ setStepNumber }) => {
         </div>
         <select
           className="academictypesContainer"
+          value={selectedValue}
           onChange={(e) => {
             handleDropDownChange(e.target.value);
           }}
