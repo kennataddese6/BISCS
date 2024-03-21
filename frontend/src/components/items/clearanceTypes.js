@@ -19,11 +19,10 @@ const ClearanceTypes = ({ setStepNumber }) => {
       setStepNumber((prevNumber) => prevNumber + 1);
     }
     if (isError) {
-      console.log("There is an error", message);
       toast.error(message);
     }
     dispatch(reset());
-  }, [isError, isSuccess, setStepNumber, message]);
+  }, [isError, isSuccess, setStepNumber, message, dispatch]);
   const handleDropDownChange = (value) => {
     if (!value) {
       //If there is no value return/exit

@@ -145,6 +145,7 @@ const DefineRules = () => {
                     </div>
                     <input
                       type="checkbox"
+                      disabled={!index}
                       checked={content.PreRequest}
                       onChange={(e) => {
                         handlePreRequest(

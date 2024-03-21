@@ -10,7 +10,7 @@ import AddClearance from "./components/items/addClearance";
 import DefineRules from "./components/items/defineRules";
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
-  const [stepNumber, setStepNumber] = useState(1);
+  const [stepNumber, setStepNumber] = useState(3);
 
   return (
     <>
