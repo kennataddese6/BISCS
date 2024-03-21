@@ -141,7 +141,7 @@ const DefineRules = ({ setStepNumber }) => {
                 <div className="preRequests">
                   <label>Clearance</label>
                   <label> Pre-request</label>
-                  <label className="appealCheckBox"> Appeal</label>
+                  <label className="appealCheckBox">In-Person</label>
                 </div>
                 {AcademicNames.ClearanceDetail.map((content, index) => (
                   <div className="preRequests" key={index}>
