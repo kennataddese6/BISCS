@@ -120,7 +120,6 @@ const AddClearance = ({ setStepNumber }) => {
     );
     setClearanceItems(newClearanceItems);
     toast.success(`${customClearanceTypes} added!`);
-    setCustomClearanceTypes();
   };
   const handleAddClearance = () => {
     dispatch(updateClearance(clearanceNames));
