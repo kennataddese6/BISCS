@@ -12,7 +12,6 @@ const createClearanceType = asyncHandler(async (req, res) => {
         AcademicName: academicType,
       });
       if (clearanceExist) {
-        console.log("Here is the error", clearanceExist.AcademicName);
         throw new Error(`${academicType} already exists.`);
       }
     }
@@ -25,7 +24,6 @@ const createClearanceType = asyncHandler(async (req, res) => {
 
     res.status(200).json(results);
   } catch (error) {
-    console.log("Error thrown", error.message);
     res.status(400).json({
       message: error.message,
       error: error.message,
@@ -97,10 +95,11 @@ const defineClearance = asyncHandler(async (req, res) => {
             Approved: oneClearanceDetail.Approved,
             ClearanceFieldName: oneClearanceDetail.ClearanceFieldName,
             ClearanceOrder: index + 1,
-            PreRequest: oneClearanceDetail.PreRequest,
-            PreRequestName: oneClearanceDetail.PreRequest
-              ? ClearanceDetail[index - 1].ClearanceFieldName
-              : oneClearanceDetail.PreRequestName,
+            PreRequest: index > 0 ? oneClearanceDetail.PreRequest : false,
+            PreRequestName:
+              oneClearanceDetail.PreRequest && index > 0
+                ? ClearanceDetail[index - 1].ClearanceFieldName
+                : oneClearanceDetail.PreRequestName,
             StudentAppeal: oneClearanceDetail.StudentAppeal,
             _id: oneClearanceDetail._id,
           };
