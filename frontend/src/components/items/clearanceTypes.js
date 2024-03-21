@@ -4,18 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createClearanceType } from "../../features/academicType/clearanceSlice";
 import "./styles/academictype.css";
+import { reset } from "../../features/academicType/clearanceSlice";
 const ClearanceTypes = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [academicNames, setAcademicNames] = useState([]);
   const [academicTypes, setAcademicTypes] = useState(["Regular", "Extension"]);
   const [customAcademic, setCustomAcademic] = useState("");
-  const { isError, isSuccess } = useSelector((state) => state.clearance);
+  const { isError, isSuccess, message } = useSelector(
+    (state) => state.clearance
+  );
   const [selectedValue, setSelectedValue] = useState("");
   useEffect(() => {
     if (isSuccess) {
       setStepNumber((prevNumber) => prevNumber + 1);
     }
-  }, [isError, isSuccess, setStepNumber]);
+    if (isError) {
+      console.log("There is an error", message);
+      toast.error(message);
+    }
+    dispatch(reset());
+  }, [isError, isSuccess, setStepNumber, message]);
   const handleDropDownChange = (value) => {
     if (!value) {
       //If there is no value return/exit
