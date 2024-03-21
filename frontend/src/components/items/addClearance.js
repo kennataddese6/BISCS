@@ -13,6 +13,7 @@ const AddClearance = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const [clearanceNames, setClearanceNames] = useState();
   const [customClearanceTypes, setCustomClearanceTypes] = useState();
+  const [selectedValue, setSelectedValue] = useState("");
   const [clearanceItems, setClearanceItems] = useState([
     {
       clearanceItemFor: "Regular",
@@ -86,6 +87,7 @@ const AddClearance = ({ setStepNumber }) => {
         : oneClearance
     );
     setClearanceNames(newClearanceNames);
+    setSelectedValue("");
   };
   const handleAddingCustomClearanceTyes = (target) => {
     if (!customClearanceTypes) {
@@ -195,6 +197,7 @@ const AddClearance = ({ setStepNumber }) => {
               </div>
               <select
                 className="clearancetypesDropDown"
+                value={selectedValue}
                 onChange={(e) => {
                   handleDropDownChange(
                     e.target.value,
