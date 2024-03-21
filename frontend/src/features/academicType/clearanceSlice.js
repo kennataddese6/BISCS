@@ -87,6 +87,7 @@ export const academicSlice = createSlice({
       state.isSuccess = false;
       state.isError = false;
       state.message = "";
+      state.isSuccessUpdateClearance = false;
     },
   },
   extraReducers: (builder) => {
