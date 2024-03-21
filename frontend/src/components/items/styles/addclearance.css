@@ -3,6 +3,17 @@
   width: 90%;
   display: flex;
   flex-wrap: wrap;
+  animation: slideDown 1s ease-in-out 0s 1 forwards;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 .clearance {
   margin: 2px 0;
