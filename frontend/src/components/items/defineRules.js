@@ -3,7 +3,10 @@ import "./styles/definerules.css";
 import { getClearanceTypes } from "../../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { defineClearance } from "../../features/academicType/clearanceSlice";
+import {
+  defineClearance,
+  reset,
+} from "../../features/academicType/clearanceSlice";
 const DefineRules = ({ setStepNumber }) => {
   const dispatch = useDispatch();
   const { message, isSuccess, isSuccessUpdateClearance } = useSelector(
@@ -100,7 +103,8 @@ const DefineRules = ({ setStepNumber }) => {
     if (isSuccessUpdateClearance) {
       setStepNumber((prev) => prev + 1);
     }
-  }, [isSuccess, message, isSuccessUpdateClearance, setStepNumber]);
+    dispatch(reset());
+  }, [isSuccess, message, isSuccessUpdateClearance, setStepNumber, dispatch]);
   useEffect(() => {
     dispatch(getClearanceTypes());
   }, [dispatch]);
