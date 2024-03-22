@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getClearanceTypes } from "../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import { FaUser } from "react-icons/fa";
 const ClearancePreview = () => {
   const { isSuccess, message } = useSelector((state) => state.clearance);
   const [Clearances, setClearance] = useState();
@@ -26,13 +26,23 @@ const ClearancePreview = () => {
                 {clearance.AcademicName} Clearance
               </h3>
               <ol>
-                <li>Dormitory</li>
-                <li>Finance</li>
-                <ul>
-                  <li>Dormitory</li>
-                </ul>
-                <li>Registrar</li>
-                <li>Food Service</li>
+                {clearance.ClearanceDetail.map((detail) => (
+                  <>
+                    <li>
+                      {detail.ClearanceFieldName}{" "}
+                      {detail.StudentAppeal && (
+                        <div className="studentAppealIconContainer">
+                          <FaUser color="lightgreen" />
+                        </div>
+                      )}
+                    </li>
+                    {detail.PreRequest && (
+                      <ul>
+                        <li> {detail.PreRequestName} </li>
+                      </ul>
+                    )}
+                  </>
+                ))}
               </ol>
             </div>
           ))}
