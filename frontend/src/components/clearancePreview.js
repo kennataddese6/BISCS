@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getClearanceTypes } from "../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUser } from "react-icons/fa";
-const ClearancePreview = () => {
+const ClearancePreview = ({ setStepNumber }) => {
   const { isSuccess, message } = useSelector((state) => state.clearance);
   const [Clearances, setClearance] = useState();
   const dispatch = useDispatch();
@@ -15,6 +15,9 @@ const ClearancePreview = () => {
   useEffect(() => {
     dispatch(getClearanceTypes());
   }, [dispatch]);
+  const handleStepChange = () => {
+    setStepNumber((prev) => prev - 1);
+  };
   return (
     <>
       <div className="addClearanceContainer">
@@ -48,7 +51,13 @@ const ClearancePreview = () => {
           ))}
       </div>
       <div className="nextButtonContainer">
-        <button className="previousStepButton"> Previous </button>
+        <button
+          className="previousStepButton"
+          onClick={() => handleStepChange()}
+        >
+          {" "}
+          Previous{" "}
+        </button>
         <button className="nextStepButton"> Finish </button>
       </div>
     </>
