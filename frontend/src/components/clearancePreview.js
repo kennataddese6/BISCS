@@ -25,6 +25,15 @@ const ClearancePreview = () => {
                 {" "}
                 {clearance.AcademicName} Clearance
               </h3>
+              <ol>
+                <li>Dormitory</li>
+                <li>Finance</li>
+                <ul>
+                  <li>Dormitory</li>
+                </ul>
+                <li>Registrar</li>
+                <li>Food Service</li>
+              </ol>
             </div>
           ))}
       </div>
