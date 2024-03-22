@@ -23,7 +23,7 @@ function App() {
         {stepNumber === 1 && <ClearanceTypes setStepNumber={setStepNumber} />}
         {stepNumber === 2 && <AddClearance setStepNumber={setStepNumber} />}
         {stepNumber === 3 && <DefineRules setStepNumber={setStepNumber} />}
-        {stepNumber === 4 && <ClearancePreview />}
+        {stepNumber === 4 && <ClearancePreview setStepNumber={setStepNumber} />}
       </div>
     </>
   );
