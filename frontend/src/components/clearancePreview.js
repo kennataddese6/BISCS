@@ -48,6 +48,7 @@ const ClearancePreview = () => {
           ))}
       </div>
       <div className="nextButtonContainer">
+        <button className="previousStepButton"> Previous </button>
         <button className="nextStepButton"> Finish </button>
       </div>
     </>
