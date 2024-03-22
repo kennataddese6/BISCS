@@ -85,6 +85,17 @@ select {
   justify-content: flex-end;
   align-items: center;
 }
+.previousStepButton {
+  margin-bottom: 16px;
+  padding: 20px 44px;
+  background: linear-gradient(to right, blueviolet 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-right: auto;
+}
 .nextStepButton {
   margin-bottom: 16px;
   padding: 20px 44px;
@@ -98,6 +109,9 @@ select {
 .nextStepButton:hover {
   animation: poundingEffect 1s ease-in 0s 1 forwards;
 }
+.previousStepButton:hover {
+  animation: reversepoundingEffect 1s ease-in 0s 1 forwards;
+}
 @keyframes poundingEffect {
   0% {
     background-position: 100% bottom;
@@ -110,6 +124,20 @@ select {
   }
   100% {
     background-position: 0% bottom;
+  }
+}
+@keyframes reversepoundingEffect {
+  0% {
+    background-position: 0% bottom;
+  }
+  33.33% {
+    background-position: 100% bottom;
+  }
+  66.66% {
+    background-position: 85% bottom;
+  }
+  100% {
+    background-position: 100% bottom;
   }
 }
 @media only screen and (min-width: 600px) {
