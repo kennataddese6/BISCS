@@ -29,22 +29,8 @@ const ClearanceSchema = mongoose.Schema({
   AcademicName: {
     type: String,
   },
-  ClearanceName: {
-    type: String,
-  },
-  StudentId: {
-    type: String,
-  },
   AdminId: {
     type: String,
-  },
-  Completed: {
-    type: Boolean,
-    default: false,
-  },
-  Started: {
-    type: Boolean,
-    default: false,
   },
   Deadline: {
     type: Date,
