@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/api/clearanceType", require("./routes/clearanceRoutes"));
+app.use("/api/Student", require("./routes/studentsRoutes"));
 
 const server = app.listen(port, () =>
   console.log(`Server started on port ${port}`)
