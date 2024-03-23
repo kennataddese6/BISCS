@@ -16,6 +16,7 @@ app.use(cors());
 
 app.use("/api/clearanceType", require("./routes/clearanceRoutes"));
 app.use("/api/Student", require("./routes/studentsRoutes"));
+app.use("/api/StudentsClearance", require("./routes/studentsClearanceRoutes"));
 
 const server = app.listen(port, () =>
   console.log(`Server started on port ${port}`)
