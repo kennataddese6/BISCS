@@ -8,18 +8,24 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 .BarcodeContainer {
   width: 200px;
   height: 200px;
   background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .studentProfileContainer {
   width: 85px;
   height: 85px;
-  background-color: yellow;
+  background-color: dodgerblue;
   position: absolute;
-  bottom: -8%;
+  bottom: 0;
+  margin-bottom: -26px;
   left: 4%;
   border-radius: 50%;
   display: flex;
