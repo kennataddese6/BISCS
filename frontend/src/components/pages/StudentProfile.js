@@ -7,7 +7,10 @@ const StudentProfile = () => {
         <div className="BarcodeContainer">
           <QRCode value="65febe6416b86fb8a891f1a9" />{" "}
         </div>
-        <div className="studentProfileContainer">K </div>
+        <div className="studentProfileContainer">
+          <div className="studentProfilePicture"></div>
+          <div className="stuentFullName">Semret Zerihun</div>
+        </div>
       </div>
     </>
   );
