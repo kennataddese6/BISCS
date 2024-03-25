@@ -5,7 +5,7 @@ const StudentProfile = () => {
     <>
       <div className="profileHeaderContainer col-l-8">
         <div className="BarcodeContainer">
-          <QRCode value="65febe6416b86fb8a891f1a9" />{" "}
+          <QRCode value="65febe6416b86fb8a891f1a9" className="barcode" />{" "}
         </div>
         <div className="studentProfileContainer">
           <div className="studentProfilePicture"></div>

@@ -26,10 +26,13 @@
     opacity: 1;
   }
 }
+.barcode {
+  opacity: 0.6;
+}
 .BarcodeContainer {
   width: 200px;
   height: 200px;
-  background-color: black;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
