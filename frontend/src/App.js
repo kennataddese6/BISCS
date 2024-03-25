@@ -1,11 +1,11 @@
-import { MemoryRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "./components/items/utilities/Spinner";
 import Clearance from "./components/pages/Clearance";
-
+import StudentProfile from "./components/pages/StudentProfile";
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
 
@@ -15,6 +15,7 @@ function App() {
       {isLoading && <Spinner />}
       <Router>
         <Routes>
+          <Route path="/student-profile" element={<StudentProfile />} />
           <Route path="/" element={<Clearance />} />
         </Routes>
       </Router>
