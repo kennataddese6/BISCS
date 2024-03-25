@@ -20,17 +20,34 @@
   align-items: center;
 }
 .studentProfileContainer {
-  width: 85px;
+  width: 90%;
   height: 85px;
-  background-color: dodgerblue;
   position: absolute;
   bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: -26px;
   left: 4%;
+  display: flex;
+  align-items: center;
+}
+.studentProfilePicture {
+  background-color: black;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../../../assets/Love.jpg");
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.stuentFullName {
+  color: black;
+  font-size: 1rem;
+  margin: 0 0 8px 8px;
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {
@@ -68,6 +85,9 @@
   }
   .col-s-12 {
     width: 100%;
+  }
+  .stuentFullName {
+    font-size: 1.5rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -148,6 +168,10 @@
   }
   .col-l-12 {
     width: 100%;
+  }
+  .BarcodeContainer {
+    width: 200px;
+    height: 200px;
   }
 }
 @media only screen and (min-width: 1200px) {
