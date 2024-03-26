@@ -50,8 +50,8 @@
   align-items: center;
 }
 .studentProfilePicture {
-  width: 85px;
-  height: 85px;
+  width: 5.5rem;
+  height: 5.5rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -92,6 +92,29 @@
 .studentMenuItem:hover {
   color: dodgerblue;
   background: none;
+}
+.studentMobilMenuContainer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+.studentMobileiconList {
+  background: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+.listItemMobileIcon {
+  background: none;
+  margin: 0;
+  font-size: 1.1rem;
+  margin-right: auto;
+}
+.listItemMobileIcon:hover {
+  color: dodgerblue;
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {
@@ -219,6 +242,9 @@
   }
   .menuContainer {
     display: flex;
+  }
+  .studentMobilMenuContainer {
+    display: none;
   }
 }
 @media only screen and (min-width: 1200px) {
