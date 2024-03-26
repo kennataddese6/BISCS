@@ -10,10 +10,27 @@ import StudentBelongings from "../items/studentBelongings";
 import StudentFileCase from "../items/studentFileCase";
 import StudentBorrowedItem from "../items/studentBorrowedItem";
 import Notifications from "../items/notificaton";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const StudentProfile = () => {
   const [contentIndex, setContentIndex] = useState(1);
+  const [animationIndex, setAnimationIndex] = useState(0);
+  const animationIndexRef = useRef(animationIndex);
+
+  useEffect(() => {
+    animationIndexRef.current = animationIndex;
+  }, [animationIndex]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (animationIndexRef.current === 5) {
+        clearInterval(interval);
+        setAnimationIndex(0);
+      } else {
+        setAnimationIndex(animationIndexRef.current + 1);
+      }
+    }, 300);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div className="profileHeaderContainer col-l-8">
@@ -29,7 +46,7 @@ const StudentProfile = () => {
             <li
               className={`studentMenuItem ${
                 contentIndex === 1 && `studentMenuItemActive`
-              }`}
+              } `}
               onClick={() => setContentIndex(1)}
             >
               Clearance
@@ -73,7 +90,8 @@ const StudentProfile = () => {
         <ul className="studentMobileiconList">
           <li
             className={`listItemMobileIcon ${
-              contentIndex === 1 && `listItemMobileIconActive`
+              (animationIndex === 1 && `waveturn`,
+              contentIndex === 1 && `listItemMobileIconActive`)
             }`}
             onClick={() => setContentIndex(1)}
           >
@@ -82,7 +100,8 @@ const StudentProfile = () => {
           </li>
           <li
             className={`listItemMobileIcon ${
-              contentIndex === 2 && `listItemMobileIconActive`
+              (contentIndex === 2 && `listItemMobileIconActive`,
+              animationIndex === 2 && `waveturn`)
             }`}
             onClick={() => setContentIndex(2)}
           >
@@ -91,7 +110,8 @@ const StudentProfile = () => {
           </li>
           <li
             className={`listItemMobileIcon ${
-              contentIndex === 3 && `listItemMobileIconActive`
+              (contentIndex === 3 && `listItemMobileIconActive`,
+              animationIndex === 3 && `waveturn`)
             }`}
             onClick={() => setContentIndex(3)}
           >
@@ -99,7 +119,8 @@ const StudentProfile = () => {
           </li>
           <li
             className={`listItemMobileIcon ${
-              contentIndex === 4 && `listItemMobileIconActive`
+              (contentIndex === 4 && `listItemMobileIconActive`,
+              animationIndex === 4 && `waveturn`)
             }`}
             onClick={() => setContentIndex(4)}
           >
@@ -107,7 +128,8 @@ const StudentProfile = () => {
           </li>
           <li
             className={`listItemMobileIcon ${
-              contentIndex === 5 && `listItemMobileIconActive`
+              (contentIndex === 5 && `listItemMobileIconActive`,
+              animationIndex === 5 && `waveturn`)
             }`}
             onClick={() => setContentIndex(5)}
           >

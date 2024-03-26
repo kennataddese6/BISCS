@@ -117,7 +117,13 @@
   margin: 0;
   font-size: 1.1rem;
   margin-right: auto;
+  transition: all 0.3s linear;
 }
+.waveturn {
+  /* animation: wave 0.5s linear 0 1 both; */
+  transform: translateY(-8px);
+}
+
 .listItemMobileIconActive {
   color: dodgerblue;
   transform: translateY(-3px);
