@@ -26,11 +26,46 @@ const StudentProfile = () => {
         </div>
         <div className="menuContainer">
           <ul className="studentMenuHeader">
-            <li className="studentMenuItem">Clearance</li>
-            <li className="studentMenuItem">Belongings</li>
-            <li className="studentMenuItem">Loans</li>
-            <li className="studentMenuItem">Cases</li>
-            <li className="studentMenuItem">Notifications</li>
+            <li
+              className={`studentMenuItem ${
+                contentIndex === 1 && `studentMenuItemActive`
+              }`}
+              onClick={() => setContentIndex(1)}
+            >
+              Clearance
+            </li>
+            <li
+              className={`studentMenuItem ${
+                contentIndex === 2 && `studentMenuItemActive`
+              }`}
+              onClick={() => setContentIndex(2)}
+            >
+              Belongings
+            </li>
+            <li
+              className={`studentMenuItem ${
+                contentIndex === 3 && `studentMenuItemActive`
+              }`}
+              onClick={() => setContentIndex(3)}
+            >
+              Loans
+            </li>
+            <li
+              className={`studentMenuItem ${
+                contentIndex === 4 && `studentMenuItemActive`
+              }`}
+              onClick={() => setContentIndex(4)}
+            >
+              Cases
+            </li>
+            <li
+              className={`studentMenuItem ${
+                contentIndex === 5 && `studentMenuItemActive`
+              }`}
+              onClick={() => setContentIndex(5)}
+            >
+              Notifications
+            </li>
           </ul>
         </div>
       </div>

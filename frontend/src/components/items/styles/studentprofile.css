@@ -90,6 +90,9 @@
 .studentMenuItem {
   background: none;
 }
+.studentMenuItemActive {
+  color: dodgerblue;
+}
 
 .studentMenuItem:hover {
   color: dodgerblue;
@@ -128,6 +131,7 @@
   margin: auto;
   width: 90%;
   margin-top: 36px;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
   color: white;
@@ -268,7 +272,7 @@
   }
   .studentPageContent {
     margin: auto;
-    background-color: greenyellow;
+    border: 1px solid black;
     width: 66.6%;
     margin-top: 76px;
   }
