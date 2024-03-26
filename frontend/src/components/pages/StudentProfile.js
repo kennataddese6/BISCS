@@ -11,6 +11,15 @@ const StudentProfile = () => {
           <div className="studentProfilePicture"></div>
           <div className="stuentFullName">Semret Zerihun</div>
         </div>
+        <div className="menuContainer">
+          <ul className="studentMenuHeader">
+            <li className="studentMenuItem">Clearance</li>
+            <li className="studentMenuItem">Belongings</li>
+            <li className="studentMenuItem">Loans</li>
+            <li className="studentMenuItem">Cases</li>
+            <li className="studentMenuItem">Notifications</li>
+          </ul>
+        </div>
       </div>
     </>
   );
