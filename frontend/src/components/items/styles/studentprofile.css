@@ -115,15 +115,22 @@
   font-size: 1.1rem;
   margin-right: auto;
 }
+.listItemMobileIconActive {
+  color: dodgerblue;
+  transform: translateY(-3px);
+}
 .listItemMobileIcon:hover {
   color: dodgerblue;
   transform: translateY(-3px);
 }
+
 .studentPageContent {
   margin: auto;
-  background-color: greenyellow;
   width: 90%;
   margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  color: white;
 }
 @media only screen and (min-width: 600px) {
   .col-s-1 {
