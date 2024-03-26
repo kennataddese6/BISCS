@@ -9,6 +9,7 @@ import StudentClearance from "../items/studentClearance";
 import StudentBelongings from "../items/studentBelongings";
 import StudentFileCase from "../items/studentFileCase";
 import StudentBorrowedItem from "../items/studentBorrowedItem";
+import Notifications from "../items/notificaton";
 import { useState } from "react";
 
 const StudentProfile = () => {
@@ -69,7 +70,12 @@ const StudentProfile = () => {
           >
             <FaHandHoldingUsd />
           </li>
-          <li className="listItemMobileIcon">
+          <li
+            className={`listItemMobileIcon ${
+              contentIndex === 5 && `listItemMobileIconActive`
+            }`}
+            onClick={() => setContentIndex(5)}
+          >
             <FaBell />
           </li>
         </ul>
@@ -79,6 +85,7 @@ const StudentProfile = () => {
         {contentIndex === 2 && <StudentBelongings />}
         {contentIndex === 3 && <StudentFileCase />}
         {contentIndex === 4 && <StudentBorrowedItem />}
+        {contentIndex === 5 && <Notifications />}
       </div>
     </>
   );
