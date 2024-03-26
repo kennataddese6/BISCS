@@ -1,5 +1,10 @@
 import "../items/styles/studentprofile.css";
 import QRCode from "react-qr-code";
+import { FaClipboardList } from "react-icons/fa";
+import { FaSuitcase } from "react-icons/fa";
+import { FaGavel } from "react-icons/fa";
+import { FaHandHoldingUsd } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 const StudentProfile = () => {
   return (
     <>
@@ -20,6 +25,27 @@ const StudentProfile = () => {
             <li className="studentMenuItem">Notifications</li>
           </ul>
         </div>
+      </div>
+      <div className="studentMobilMenuContainer">
+        <ul className="studentMobileiconList">
+          <li className="listItemMobileIcon">
+            {" "}
+            <FaClipboardList />
+          </li>
+          <li className="listItemMobileIcon">
+            {" "}
+            <FaSuitcase />
+          </li>
+          <li className="listItemMobileIcon">
+            <FaGavel />
+          </li>
+          <li className="listItemMobileIcon">
+            <FaHandHoldingUsd />
+          </li>
+          <li className="listItemMobileIcon">
+            <FaBell />
+          </li>
+        </ul>
       </div>
     </>
   );
