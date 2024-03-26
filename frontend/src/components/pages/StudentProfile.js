@@ -47,6 +47,25 @@ const StudentProfile = () => {
           </li>
         </ul>
       </div>
+      <div className="studentPageContent">
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+        <h1> Helo this is me</h1>
+      </div>
     </>
   );
 };
