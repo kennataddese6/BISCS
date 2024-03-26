@@ -6,6 +6,7 @@ import { FaGavel } from "react-icons/fa";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import StudentClearance from "../items/studentClearance";
+import StudentBelongings from "../items/studentBelongings";
 import { useState } from "react";
 const StudentProfile = () => {
   const [contentIndex, setContentIndex] = useState(1);
@@ -40,7 +41,12 @@ const StudentProfile = () => {
             {" "}
             <FaClipboardList />
           </li>
-          <li className="listItemMobileIcon">
+          <li
+            className={`listItemMobileIcon ${
+              contentIndex === 2 && `listItemMobileIconActive`
+            }`}
+            onClick={() => setContentIndex(2)}
+          >
             {" "}
             <FaSuitcase />
           </li>
@@ -57,6 +63,7 @@ const StudentProfile = () => {
       </div>
       <div className="studentPageContent">
         {contentIndex === 1 && <StudentClearance />}
+        {contentIndex === 2 && <StudentBelongings />}
       </div>
     </>
   );
