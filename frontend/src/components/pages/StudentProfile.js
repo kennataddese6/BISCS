@@ -5,7 +5,10 @@ import { FaSuitcase } from "react-icons/fa";
 import { FaGavel } from "react-icons/fa";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
+import StudentClearance from "../items/studentClearance";
+import { useState } from "react";
 const StudentProfile = () => {
+  const [contentIndex, setContentIndex] = useState(1);
   return (
     <>
       <div className="profileHeaderContainer col-l-8">
@@ -28,7 +31,12 @@ const StudentProfile = () => {
       </div>
       <div className="studentMobilMenuContainer">
         <ul className="studentMobileiconList">
-          <li className="listItemMobileIcon">
+          <li
+            className={`listItemMobileIcon ${
+              contentIndex === 1 && `listItemMobileIconActive`
+            }`}
+            onClick={() => setContentIndex(1)}
+          >
             {" "}
             <FaClipboardList />
           </li>
@@ -48,23 +56,7 @@ const StudentProfile = () => {
         </ul>
       </div>
       <div className="studentPageContent">
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
-        <h1> Helo this is me</h1>
+        {contentIndex === 1 && <StudentClearance />}
       </div>
     </>
   );
