@@ -117,6 +117,7 @@
 }
 .listItemMobileIcon:hover {
   color: dodgerblue;
+  transform: translateY(-3px);
 }
 .studentPageContent {
   margin: auto;
@@ -261,7 +262,7 @@
   .studentPageContent {
     margin: auto;
     background-color: greenyellow;
-    width: 90%;
+    width: 66.6%;
     margin-top: 76px;
   }
 }
