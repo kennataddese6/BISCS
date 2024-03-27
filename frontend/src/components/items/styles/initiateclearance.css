@@ -1,15 +1,16 @@
 .initateClearanceHeader {
   color: white;
   text-align: center;
-  margin-top: 32px;
+  margin: 18px;
 }
-.initateClearanceContainer:not(.initateClearanceHeader) {
+.initateClearanceContainer {
   width: 90%;
   margin: auto;
   padding: 2px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 12px;
 }
 .initiationClearances {
   width: 100%;
@@ -174,5 +175,8 @@
   }
   .col-xl-12 {
     width: 100%;
+  }
+  .initateClearanceHeader {
+    margin-top: 16vh;
   }
 }
