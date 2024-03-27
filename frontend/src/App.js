@@ -7,6 +7,8 @@ import Spinner from "./components/items/utilities/Spinner";
 import Clearance from "./components/pages/Clearance";
 import StudentProfile from "./components/pages/StudentProfile";
 import OfficerPage from "./components/pages/OfficerPage";
+import InitiateClearance from "./components/pages/InitiateClearance";
+
 function App() {
   const { isLoading } = useSelector((state) => state.clearance);
 
@@ -19,6 +21,7 @@ function App() {
           <Route path="/student" element={<StudentProfile />} />
           <Route path="/officer" element={<OfficerPage />} />
           <Route path="/" element={<Clearance />} />
+          <Route path="/initiate" element={<InitiateClearance />} />
         </Routes>
       </Router>
     </>
