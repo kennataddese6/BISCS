@@ -17,6 +17,7 @@
   border-bottom-left-radius: 12px;
 }
 .OfficerHeaderContainer {
+  color: white;
   width: 100%;
   margin: auto;
   min-height: 45vh;

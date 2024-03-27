@@ -36,7 +36,7 @@ const OfficerPage = () => {
               } `}
               onClick={() => setContentIndex(1)}
             >
-              Clearance
+              Scan
             </li>
             <li
               className={`studentMenuItem ${
