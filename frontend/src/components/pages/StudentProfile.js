@@ -65,7 +65,7 @@ const StudentProfile = () => {
               }`}
               onClick={() => setContentIndex(3)}
             >
-              Loans
+              Cases
             </li>
             <li
               className={`studentMenuItem ${
@@ -73,7 +73,7 @@ const StudentProfile = () => {
               }`}
               onClick={() => setContentIndex(4)}
             >
-              Cases
+              Loans
             </li>
             <li
               className={`studentMenuItem ${
