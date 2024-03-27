@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Steps = ({ stepNumber }) => {
   const navigate = useNavigate();
   const goStudentPage = () => {
-    navigate("/student-profile");
+    navigate("/student");
   };
   return (
     <div className="stepContainer">
