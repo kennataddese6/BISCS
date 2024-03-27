@@ -16,6 +16,22 @@
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
 }
+.OfficerHeaderContainer {
+  width: 100%;
+  margin: auto;
+  min-height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: url("../../../assets/ImageOne.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: slideDown 1s ease-in-out 0s 1 both;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
 @keyframes slideDown {
   0% {
     transform: translateY(-100%);
@@ -91,11 +107,11 @@
   background: none;
 }
 .studentMenuItemActive {
-  color: dodgerblue;
+  color: #286cd3;
 }
 
 .studentMenuItem:hover {
-  color: dodgerblue;
+  color: #286cd3;
   background: none;
 }
 .studentMobilMenuContainer {
