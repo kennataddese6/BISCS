@@ -12,7 +12,15 @@ const Steps = ({ stepNumber }) => {
         <div className="stepCircle"> 1 </div>
         <div className="stepText"> Academic </div>
       </div>
-      <div className="stepLine col-s-1 col-l-1 col-m-1"> </div>
+      <div
+        className={`${
+          stepNumber < 2
+            ? `inactiveLine col-s-1 col-l-1 col-m-1`
+            : `stepLine  col-s-1 col-l-1 col-m-1`
+        }`}
+      >
+        {" "}
+      </div>
       <div className="subStepContainer">
         <div
           className={`stepCircle ${stepNumber < 2 && `inactiveStep`} `}
@@ -29,7 +37,7 @@ const Steps = ({ stepNumber }) => {
       </div>
       <div
         className={`${
-          stepNumber < 2
+          stepNumber < 3
             ? `inactiveLine col-s-1 col-l-1 col-m-1`
             : `stepLine  col-s-1 col-l-1 col-m-1`
         }`}
@@ -48,7 +56,7 @@ const Steps = ({ stepNumber }) => {
       </div>
       <div
         className={`${
-          stepNumber < 3
+          stepNumber < 4
             ? `inactiveLine col-s-1 col-l-1 col-m-1`
             : `stepLine  col-s-1 col-l-1 col-m-1`
         }`}
@@ -66,7 +74,7 @@ const Steps = ({ stepNumber }) => {
         className={`${
           stepNumber < 3
             ? `inactiveLine col-s-1 col-l-1 col-m-1 mobileStepFour`
-            : `stepLine  col-s-1 col-l-1 col-m-1`
+            : `mobileStepFour stepLine  col-s-1 col-l-1 col-m-1`
         }`}
       >
         {" "}
