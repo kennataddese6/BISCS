@@ -55,12 +55,21 @@ const Steps = ({ stepNumber }) => {
       >
         {" "}
       </div>
-      <div className="subStepContainer">
+      <div className="subStepContainer ">
         <div className={`stepCircle ${stepNumber < 4 && `inactiveStep`} `}>
           {" "}
           4{" "}
         </div>
         <div className="stepText inactiveText"> Complete </div>
+      </div>
+      <div
+        className={`${
+          stepNumber < 3
+            ? `inactiveLine col-s-1 col-l-1 col-m-1 mobileStepFour`
+            : `stepLine  col-s-1 col-l-1 col-m-1`
+        }`}
+      >
+        {" "}
       </div>
     </div>
   );
