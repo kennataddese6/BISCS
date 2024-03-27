@@ -1,5 +1,11 @@
 import "./styles/steps.css";
+import { useNavigate } from "react-router-dom";
+
 const Steps = ({ stepNumber }) => {
+  const navigate = useNavigate();
+  const goStudentPage = () => {
+    navigate("/student-profile");
+  };
   return (
     <div className="stepContainer">
       <div className="subStepContainer">
@@ -8,7 +14,12 @@ const Steps = ({ stepNumber }) => {
       </div>
       <div className="stepLine col-s-1 col-l-1 col-m-1"> </div>
       <div className="subStepContainer">
-        <div className={`stepCircle ${stepNumber < 2 && `inactiveStep`} `}>
+        <div
+          className={`stepCircle ${stepNumber < 2 && `inactiveStep`} `}
+          onClick={() => {
+            goStudentPage();
+          }}
+        >
           2
         </div>
         <div className={`stepText ${stepNumber < 2 && `inactiveText`} `}>
