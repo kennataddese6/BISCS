@@ -8,13 +8,13 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url("https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg");
+  background-image: url("https://media.cntraveler.com/photos/58a5d89287666e798dbdb573/16:9/w_2580,c_limit/antarctica-scotia-sea-chinstrap-penguins-GettyImages-126249208.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
   animation: slideDown 1s ease-in-out 0s 1 both;
-  border-bottom-right-radius: 12px;
-  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
 }
 .OfficerHeaderContainer {
   color: white;
@@ -213,6 +213,9 @@
   .barcode {
     width: 200px;
     height: 200px;
+  }
+  .profileHeaderContainer {
+    border-radius: 0;
   }
 }
 @media only screen and (min-width: 768px) {
