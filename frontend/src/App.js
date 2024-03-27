@@ -16,7 +16,7 @@ function App() {
       {isLoading && <Spinner />}
       <Router>
         <Routes>
-          <Route path="/student-profile" element={<StudentProfile />} />
+          <Route path="/student" element={<StudentProfile />} />
           <Route path="/officer" element={<OfficerPage />} />
           <Route path="/" element={<Clearance />} />
         </Routes>
