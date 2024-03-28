@@ -3,15 +3,15 @@
   height: 100%;
   position: absolute;
   z-index: 1;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .spinner {
   width: 80px;
   height: 80px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border: 6px solid;
   border-color: dodgerblue transparent blueviolet transparent;
   animation: spin 1s ease-out 0s infinite;
