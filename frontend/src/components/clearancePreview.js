@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { getClearanceTypes } from "../features/academicType/clearanceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const ClearancePreview = ({ setStepNumber }) => {
   const { isSuccess, message } = useSelector((state) => state.clearance);
   const [Clearances, setClearance] = useState();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isSuccess) {
@@ -58,7 +60,15 @@ const ClearancePreview = ({ setStepNumber }) => {
           {" "}
           Previous{" "}
         </button>
-        <button className="nextStepButton"> Finish </button>
+        <button
+          className="nextStepButton"
+          onClick={() => {
+            navigate("/initiate");
+          }}
+        >
+          {" "}
+          Finish{" "}
+        </button>
       </div>
     </>
   );
