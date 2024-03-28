@@ -22,6 +22,9 @@ const InitiateClearance = () => {
         <div className="initiationClearances col-s-5 col-l-3">Student</div>
         <div className="initiationClearances col-s-5 col-l-3">All</div>
       </div>
+      <div className="popupContainer">
+        <div className="popup"></div>
+      </div>
     </>
   );
 };
